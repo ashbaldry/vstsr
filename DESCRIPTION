@@ -4,7 +4,7 @@ Title: Visual Studio Team Services API Caller
 Version: 0.1.0
 Authors@R: person('Ashley', 'Baldry', email = 'arbaldry91@gmail.com', role = c('aut', 'cre'))
 Description: Series of functions that allow API calling to Visual Studio Team Services.
-Imports: R6
+Imports: R6, httr, RCurl, magrittr, jsonlite
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
