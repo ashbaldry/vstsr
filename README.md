@@ -5,6 +5,6 @@ Trying out writing APIs connecting R and Visual Studio Team Services using R6 ob
 
 ## Initialisation
 ```
-install_github('frommufcwithluv/vstsr')
-vsts_info <- vsts_account(user = '<USER NAME>', pass= '<PASSWORD>', domain = '<VS DOMAIN>', project = '<VS PROJECT>')
+install_github('ashbaldry/vstsr')
+vsts_info <- vsts_account$new(user = '<USER NAME>', pass= '<PASSWORD>', domain = '<VS DOMAIN>', project = '<VS PROJECT>')
 ```
