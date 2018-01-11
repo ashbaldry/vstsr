@@ -1,8 +1,8 @@
 #' Visual Studio Team Services Account
 #'
-#' @description
-#' In order to call any of the APIs to VSTS, credentials to access the server are needed. Once these have been set-up they won't
-#' need to be used in a session.
+#' @docType class
+#' @format An \code{\link{R6Class}} generator object
+#' @keywords data
 #'
 #' @export
 vsts_account <- R6::R6Class(classname = 'vsts',
@@ -32,6 +32,10 @@ vsts_account <- R6::R6Class(classname = 'vsts',
                               delete_repo = function(repo) {
                                 private$proj_check()
                                 vsts_delete_repos(self$domain, self$project, repo, private$auth_key)
+                              },
+
+                              get_commits = function(repo, query = NULL) {
+                                vsts_get_commits(self$domain, self$project, repo, private$auth_key, query = query)
                               }
 
                             ),
