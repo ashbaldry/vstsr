@@ -11,18 +11,18 @@ install_github('ashbaldry/vstsr')
 library(vstsr)
 ```
 
-##Initialisation
+## Initialisation
 
 There are two ways to use the `vstsr` package:
 1. Creating an R6 object using `vsts_account` that contains simple methods to do all of the functions that are available in the package.
 2. Create an authorisation key using `vsts_auth_key` and then using that to run each of the functions within the package. 
 
-###Method 1:
+#### Method 1:
 ```
 proj <- vsts_account$new(user = '<USER NAME>', pass= '<PASSWORD>', domain = '<VS DOMAIN>', project = '<VS PROJECT>')
 ```
 
-###Method 2:
+#### Method 2:
 ```
 auth_key <- vsts_auth_key(user = '<USER NAME>', pass= '<PASSWORD>')
 ```
