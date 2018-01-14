@@ -1,4 +1,4 @@
-#' Visual Studio Project Git Repository Information
+#' Visual Studio Project Git Repositories
 #'
 #' @description
 #' These functions will allow you to scrape git repository information from Visual Studio.

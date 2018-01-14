@@ -11,6 +11,9 @@ vsts_auth_key(user, pass)
 
 \item{pass}{password to access VSTS project}
 }
+\value{
+An authentication key string in the form of 'Basic <Base 64 of user:pass>'
+}
 \description{
-Visual Studio Team Service Authentication Key
+Creation of a VSTS authentication key that will be used when running any of the API calls.
 }

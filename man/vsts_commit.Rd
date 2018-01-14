@@ -2,7 +2,7 @@
 % Please edit documentation in R/git.R
 \name{vsts_get_commits}
 \alias{vsts_get_commits}
-\title{Visual Studio Project Git Repository Information}
+\title{Visual Studio Project Git Repositories}
 \usage{
 vsts_get_commits(domain, project, repo, auth_key, query = NULL)
 }

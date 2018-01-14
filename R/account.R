@@ -1,9 +1,9 @@
 #' Visual Studio Team Services Account
 #'
-#' @param user username for the Visual Studio account
-#' @param pass password for the Visual Studio account
-#' @param domain domain name for the Visual Studio account
-#' @param project (optional) project name within the domain of the Visual Studio account
+#' @field user username for the Visual Studio account
+#' @field pass password for the Visual Studio account
+#' @field domain domain name for the Visual Studio account
+#' @field project (optional) project name within the domain of the Visual Studio account
 #'
 #' @docType class
 #' @format An \code{\link{R6Class}} generator object
