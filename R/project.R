@@ -19,7 +19,7 @@ vsts_get_projects <- function(domain, auth_key, quiet = FALSE) {
     return(invisible(NULL))
   }
 
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(.) %>% .$value
+  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE) %>% .$value
   if(!quiet) cat('Available projects:', paste(content$name, collapse = ', '), '\n')
   return(invisible(content))
 }

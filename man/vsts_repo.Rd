@@ -2,15 +2,15 @@
 % Please edit documentation in R/repository.R
 \name{vsts_get_repos}
 \alias{vsts_get_repos}
-\alias{vsts_create_repos}
-\alias{vsts_delete_repos}
+\alias{vsts_create_repo}
+\alias{vsts_delete_repo}
 \title{Visual Studio Project Repositories}
 \usage{
 vsts_get_repos(domain, project, auth_key, quiet = FALSE)
 
-vsts_create_repos(domain, project, repo, auth_key, quiet = FALSE)
+vsts_create_repo(domain, project, repo, auth_key, quiet = FALSE)
 
-vsts_delete_repos(domain, project, repo, auth_key, quiet = FALSE)
+vsts_delete_repo(domain, project, repo, auth_key, quiet = FALSE)
 }
 \arguments{
 \item{domain}{the location of the visual studio server}

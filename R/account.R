@@ -36,15 +36,25 @@ vsts_account <- R6::R6Class(classname = 'vsts',
                               },
                               create_repo = function(repo) {
                                 private$proj_check()
-                                vsts_create_repos(self$domain, self$project, repo, private$auth_key)
+                                vsts_create_repo(self$domain, self$project, repo, private$auth_key)
                               },
                               delete_repo = function(repo) {
                                 private$proj_check()
-                                vsts_delete_repos(self$domain, self$project, repo, private$auth_key)
+                                vsts_delete_repo(self$domain, self$project, repo, private$auth_key)
                               },
 
                               get_commits = function(repo, query = NULL) {
                                 vsts_get_commits(self$domain, self$project, repo, private$auth_key, query = query)
+                              },
+
+                              get_workitems = function(query = NULL) {
+                                vsts_get_workitems(self$domain, private$auth_key, query = query)
+                              },
+                              get_workitem = function(id) {
+                                vsts_get_workitem(self$domain, private$auth_key, id = id)
+                              },
+                              create_workitem = function(item_type, ...) {
+                                vsts_create_workitem(self$domain, self$project, item_type, private$auth_key, ...)
                               },
 
                               custom_command = function(url, verb, body = NULL, query = NULL) {

@@ -26,6 +26,6 @@ vsts_run_command <- function(url, verb, auth_key, body = FALSE, query = NULL) {
     return(invisible(NULL))
   }
 
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(.)
+  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE)
   return(invisible(content))
 }

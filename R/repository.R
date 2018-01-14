@@ -21,14 +21,14 @@ vsts_get_repos <- function(domain, project, auth_key, quiet = FALSE) {
     return(invisible(NULL))
   }
 
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(.) %>% .$value
+  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE) %>% .$value
   if(!quiet) cat('Available repositories:', paste(content$name, collapse = ', '), '\n')
   return(invisible(content))
 }
 
 #' @rdname vsts_repo
 #' @export
-vsts_create_repos <- function(domain, project, repo, auth_key, quiet = FALSE) {
+vsts_create_repo <- function(domain, project, repo, auth_key, quiet = FALSE) {
   uri <- paste0('https://', domain, '.visualstudio.com/DefaultCollection/_apis/git/repositories?api-version=1.0')
   proj_id <- vsts_get_projects(domain, auth_key, quiet = TRUE) %>% .[.$name == project, 'id']
   if(is.null(proj_id)) return(invisible(NULL))
@@ -47,13 +47,13 @@ vsts_create_repos <- function(domain, project, repo, auth_key, quiet = FALSE) {
   }
 
   if(!quiet) cat(repo, 'repository has been created in', project, '\n')
-  content <- data.frame(httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(.))
+  content <- data.frame(httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE))
   return(invisible(content))
 }
 
 #' @rdname vsts_repo
 #' @export
-vsts_delete_repos <- function(domain, project, repo, auth_key, quiet = FALSE) {
+vsts_delete_repo <- function(domain, project, repo, auth_key, quiet = FALSE) {
   repo_id <- vsts_get_repos(domain, project, auth_key, quiet = TRUE) %>% .[.$name == repo, 'id']
   if(length(repo_id) == 0) {
     cat('Unable to find', repo, 'in', project, '\n')

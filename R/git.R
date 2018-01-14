@@ -18,7 +18,6 @@
 #' \item{\code{toDate}}{[Date] end date to search from}
 #' }
 #'
-#' @rdname vsts_commit
 #' @export
 vsts_get_commits <- function(domain, project, repo, auth_key, query = NULL) {
   repo_id <- vsts_get_repos(domain, project, auth_key, quiet = TRUE) %>% .[.$name == repo, 'id']
@@ -35,6 +34,6 @@ vsts_get_commits <- function(domain, project, repo, auth_key, query = NULL) {
     return(invisible(NULL))
   }
 
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(.) %>% .$value
+  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE) %>% .$value
   return(invisible(content))
 }
