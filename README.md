@@ -19,7 +19,8 @@ There are two ways to use the `vstsr` package:
 
 #### Method 1:
 ```
-proj <- vsts_account$new(user = '<USER NAME>', pass= '<PASSWORD>', domain = '<VS DOMAIN>', project = '<VS PROJECT>')
+proj <- vsts_account$new(user = '<USER NAME>', pass= '<PASSWORD>', 
+                         domain = '<VS DOMAIN>', project = '<VS PROJECT>')
 ```
 
 #### Method 2:
