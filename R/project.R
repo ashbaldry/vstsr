@@ -14,8 +14,8 @@ vsts_get_projects <- function(domain, auth_key, quiet = FALSE) {
   uri <- paste0('https://', domain, '.visualstudio.com/DefaultCollection/_apis/projects?api-version=1.0')
 
   response <- httr::GET(uri, httr::add_headers(Authorization = auth_key))
-  if(response$status_code != 200) {
-    cat('Unable to perform request, status code:', response$status_code, '\n')
+  if(httr::status_code(response) != 200) {
+    cat(httr::http_condition(response, 'message', 'get project list')$message, '\n')
     return(invisible(NULL))
   }
 

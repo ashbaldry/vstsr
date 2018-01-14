@@ -8,7 +8,21 @@
 \usage{
 vsts_account
 }
+\arguments{
+\item{user}{username for the Visual Studio account}
+
+\item{pass}{password for the Visual Studio account}
+
+\item{domain}{domain name for the Visual Studio account}
+
+\item{project}{(optional) project name within the domain of the Visual Studio account}
+}
 \description{
 Visual Studio Team Services Account
+}
+\examples{
+proj <- vsts_account$new('<username>', '<password>', '<domain name>', '<project name>')
+str(proj)
+
 }
 \keyword{data}

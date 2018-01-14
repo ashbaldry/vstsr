@@ -30,8 +30,8 @@ vsts_get_commits <- function(domain, project, repo, auth_key, query = NULL) {
                 '/commits?api-version=1.0')
 
   response <- httr::GET(uri, httr::add_headers(Authorization = auth_key), query = query)
-  if(response$status_code != 200) {
-    cat('Unable to perform request, status code:', response$status_code, '\n')
+  if(httr::status_code(response) != 200) {
+    cat(httr::http_condition(response, 'message', 'get commit list')$message, '\n')
     return(invisible(NULL))
   }
 

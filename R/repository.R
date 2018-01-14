@@ -16,8 +16,8 @@ vsts_get_repos <- function(domain, project, auth_key, quiet = FALSE) {
   uri <- paste0('https://', domain, '.visualstudio.com/DefaultCollection/', project, '/_apis/git/repositories?api-version=1.0')
 
   response <- httr::GET(uri, httr::add_headers(Authorization = auth_key))
-  if(response$status_code != 200) {
-    cat('Unable to perform request, status code:', response$status_code, '\n')
+  if(httr::status_code(response) != 200) {
+    cat(httr::http_condition(response, 'message', 'get repos list')$message, '\n')
     return(invisible(NULL))
   }
 
@@ -40,12 +40,9 @@ vsts_create_repos <- function(domain, project, repo, auth_key, quiet = FALSE) {
   content_body <- jsonlite::toJSON(list(name = repo, project = list(id = proj_id)), auto_unbox = TRUE)
 
   response <- httr::POST(uri, httr::add_headers(Authorization = auth_key), httr::content_type_json(), body = content_body)
-  if(response$status_code != 201) {
-    if(response$status_code == 409) {
-      cat('Unable to perform request,', repo, 'already exists in', project, '\n')
-    } else {
-      cat('Unable to perform request, status code:', response$status_code, '\n')
-    }
+  if(httr::status_code(response) != 201) {
+    fail_msg <- if(httr::status_code(response) == 409) paste('create repository;', repo, 'already exists in', project) else 'create repository'
+    cat(httr::http_condition(response, 'message', fail_msg)$message, '\n')
     return(invisible(NULL))
   }
 

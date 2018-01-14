@@ -1,8 +1,17 @@
 #' Visual Studio Team Services Account
 #'
+#' @param user username for the Visual Studio account
+#' @param pass password for the Visual Studio account
+#' @param domain domain name for the Visual Studio account
+#' @param project (optional) project name within the domain of the Visual Studio account
+#'
 #' @docType class
 #' @format An \code{\link{R6Class}} generator object
 #' @keywords data
+#'
+#' @examples
+#' proj <- vsts_account$new('<username>', '<password>', '<domain name>', '<project name>')
+#' str(proj)
 #'
 #' @export
 vsts_account <- R6::R6Class(classname = 'vsts',
@@ -36,6 +45,10 @@ vsts_account <- R6::R6Class(classname = 'vsts',
 
                               get_commits = function(repo, query = NULL) {
                                 vsts_get_commits(self$domain, self$project, repo, private$auth_key, query = query)
+                              },
+
+                              custom_command = function(url, verb, body = NULL, query = NULL) {
+                                vsts_run_command(url, verb, private$auth_key, body, query)
                               }
 
                             ),
