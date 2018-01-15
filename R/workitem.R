@@ -24,7 +24,7 @@ vsts_get_workitems <- function(domain, auth_key, query = NULL) {
 
   response <- httr::GET(uri, httr::add_headers(Authorization = auth_key), query = query)
   if(httr::status_code(response) != 200) {
-    cat(httr::http_condition(response, 'message', 'get commit list')$message, '\n')
+    cat(httr::http_condition(response, 'message', 'get work items list')$message, '\n')
     return(invisible(NULL))
   }
 
@@ -39,7 +39,7 @@ vsts_get_workitem <- function(domain, auth_key, id) {
 
   response <- httr::GET(uri, httr::add_headers(Authorization = auth_key))
   if(httr::status_code(response) != 200) {
-    cat(httr::http_condition(response, 'message', 'get commit')$message, '\n')
+    cat(httr::http_condition(response, 'message', paste0('get work item #', id))$message, '\n')
     return(invisible(NULL))
   }
 
@@ -92,7 +92,7 @@ vsts_get_itemtypes <- function(domain, project, auth_key) {
 
   response <- httr::GET(uri, httr::add_headers(Authorization = auth_key))
   if(httr::status_code(response) != 200) {
-    cat(httr::http_condition(response, 'message', 'get commit list')$message, '\n')
+    cat(httr::http_condition(response, 'message', 'get item types')$message, '\n')
     return(invisible(NULL))
   }
 
