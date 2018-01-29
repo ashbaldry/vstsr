@@ -2,11 +2,13 @@
 
 export(vsts_account)
 export(vsts_auth_key)
+export(vsts_create_release)
 export(vsts_create_repo)
 export(vsts_create_workitem)
 export(vsts_delete_repo)
 export(vsts_get_commits)
 export(vsts_get_projects)
+export(vsts_get_release_defs)
 export(vsts_get_repos)
 export(vsts_get_workitem)
 export(vsts_get_workitem_fields)
