@@ -15,7 +15,7 @@
 #' within a development team and automate inclusion of creating bugs upon creating any certain R error.
 #'
 #' @section Custom:
-#' For any non-predefined API service available in the package, it is always possible to run the \link{\code{vsts_run_command}} which
+#' For any non-predefined API service available in the package, it is always possible to run the \code{\link{vsts_run_command}} which
 #' will use any enabled Visual Studio API call.
 #'
 #' @docType package
