@@ -1,3 +1,27 @@
+#' vstsr: A package connecting R and Visual Studio
+#'
+#' This package takes a look at the Visual Studio Team Services API calls and wraps them around in easy to use R functions. This
+#' includes looking at projects, repositories, work items, and eventually sections such as builds and releases.
+#'
+#' @section Projects:
+#' This looks at the projects available in a visual studio instance. This lets you change between any project that you might
+#' have access to.
+#'
+#' @section Repositories:
+#' This looks primarily at the Git repositories available, and whether you want to create a new repository or delete an existing one.
+#'
+#' @section Work Items:
+#' This will track any existing work item for a project, and also the ability to create a new work item for a project. Useful if working
+#' within a development team and automate inclusion of creating bugs upon creating any certain R error.
+#'
+#' @section Custom:
+#' For any non-predefined API service available in the package, it is always possible to run the \link{\code{vsts_run_command}} which
+#' will use any enabled Visual Studio API call.
+#'
+#' @docType package
+#' @name vstsr
+NULL
+
 #' @import R6
 #' @import httr
 #' @importFrom RCurl base64

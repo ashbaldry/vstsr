@@ -47,7 +47,7 @@ vsts_get_release_defs <- function(domain, project, auth_key, quiet = FALSE) {
 #' @rdname vsts_release
 #' @export
 vsts_create_release <- function(domain, project, auth_key, body) {
-  uri <- paste0('https://', domain, '.vsrm.visualstudio.com/', project, '/_apis/release/releases?api-version=4.1-preview.3')
+  uri <- paste0('https://', domain, '.vsrm.visualstudio.com/', project, '/_apis/release/releases?api-version=4.1-preview')
 
   content_body <- jsonlite::toJSON(body, auto_unbox = TRUE)
 
