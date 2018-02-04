@@ -2,7 +2,6 @@
 #vstsr
 [![Build Status](https://travis-ci.org/ashbaldry/vstsr.svg?branch=master)](https://travis-ci.org/ashbaldry/vstsr)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ashbaldry/vstsr?branch=master&svg=true)](https://ci.appveyor.com/project/ashbaldry/vstsr)
-[![Coverage Status](https://codecov.io/github/ashbaldry/vstsr/coverage.svg?branch=master)](https://codecov.io/github/ashbaldry/vstsr?branch=master)
 
 The aim of `vstsr` is to make it easier to connect between R and Visual Studio Team Services.
 
