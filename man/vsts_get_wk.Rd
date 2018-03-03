@@ -28,7 +28,7 @@ that doesn't exist (\code{throw}) or simply omit it (\code{omit})}
 \item{id}{(for single work item request) ID of the work item to retrieve}
 }
 \description{
-These functions will allow you to scrape work item infromation from a particular Visual Studio project.
+These functions will allow you to scrape work item information from a particular Visual Studio project.
 }
 \details{
 For more information about work item API calls check

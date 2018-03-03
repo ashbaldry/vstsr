@@ -1,7 +1,7 @@
 #' Visual Studio Project Get Work Items
 #'
 #' @description
-#' These functions will allow you to scrape work item infromation from a particular Visual Studio project.
+#' These functions will allow you to scrape work item information from a particular Visual Studio project.
 #'
 #' @details
 #' For more information about work item API calls check
@@ -54,7 +54,7 @@ vsts_get_workitem <- function(domain, auth_key, id) {
 #' Visual Studio Project Work Items
 #'
 #' @description
-#' These functions will allow you to scrape work item infromation from a particular Visual Studio project.
+#' These functions will allow you to scrape work item information from a particular Visual Studio project.
 #'
 #' @details
 #' For more information about work item API calls check
