@@ -92,7 +92,7 @@ vsts_create_release <- function(domain, project, auth_key, body) {
 #' {projectGuid}:{BuildDefinitionId}, for Jenkins it would be {JenkinsConnectionId}:{JenkinsDefinitionId},
 #' for TfsOnPrem it would be {TfsOnPremConnectionId}:{ProjectName}:{TfsOnPremDefinitionId}.
 #' For third-party artifacts e.g. TeamCity, BitBucket you may refer 'uniqueSourceIdentifier'
-#' inside vss-extension.json \url{https://github.com/Microsoft/vsts-rm-extensions/blob/master/Extensions.}}
+#' inside vss-extension.json \url{https://github.com/Microsoft/vsts-rm-extensions/blob/master/Extensions}.}
 #' \item{\code{artifactTypeId}}{[character] Releases with given artifactTypeId will be returned.
 #' Values can be Build, Jenkins, GitHub, Nuget, Team Build (external), ExternalTFSBuild, Git, TFVC, ExternalTfsXamlBuild.}
 #' \item{\code{$expand}}{[character] The property that should be expanded in the list of releases.}
