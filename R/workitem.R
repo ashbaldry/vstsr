@@ -115,10 +115,10 @@ vsts_get_itemtypes <- function(domain, project, auth_key) {
 #' @param ... other fields that might have been missed out originally
 #'
 #' @export
-vsts_get_workitem_fields <- function(System.Title, System.Description, System.TeamProject, System.AreaPath, System.IterationPath,
+vsts_get_workitem_fields <- function(System.Title, System.Description, System.TeamProject,
+                                     System.AreaPath, System.IterationPath,
                                      Microsoft.VSTS.Common.Priority, ...) {
   field_list <- as.list(match.call())
   field_list <- field_list[-1]
   data.frame(Field = names(field_list), Value = unlist(field_list, use.names = FALSE))
 }
-
