@@ -1,5 +1,9 @@
 #' Visual Studio Team Services Account
 #'
+#' @details
+#' For the majority of functions that are within this \code{vsts_account} object, you can get help about the
+#' query or body parameter with \code{?vsts_<function name>}.
+#'
 #' @field user username for the Visual Studio account
 #' @field pass password for the Visual Studio account
 #' @field domain domain name for the Visual Studio account
@@ -7,12 +11,15 @@
 #' @field repo (optional) repository name with the project of the Visual Studio domain
 #'
 #' @docType class
-#' @format An \code{\link{R6Class}} generator object
+#' @format An \code{\link[R6]{R6Class}} generator object
 #' @keywords data
 #'
 #' @examples
-#' proj <- vsts_account$new('<username>', '<password>', '<domain name>', '<project name>', '<repo name>')
+#' \dontrun{
+#' proj <- vsts_account$new('<username>', '<password>', '<domain>',
+#'                          '<project>', '<repo>')
 #' str(proj)
+#' }
 #'
 #' @export
 vsts_account <- R6::R6Class(
@@ -105,6 +112,37 @@ vsts_account <- R6::R6Class(
     create_workitem = function(item_type, ...) {
       private$proj_check()
       vsts_create_workitem(private$domain, private$project, item_type, private$auth_key, ...)
+    },
+
+    get_releases = function(query = NULL) {
+      private$proj_check()
+      vsts_get_releases(private$domain, pivate$project, private$auth_key, query = query)
+    },
+
+    get_release = function(id) {
+      private$proj_check()
+      vsts_get_release(private$domain, private$project, id, private$auth_key)
+    },
+
+    create_release = function(body = NULL) {
+      private$proj_check()
+      vsts_create_release(private$domain, private$project, private$auth_key, body = body)
+    },
+
+    deploy_release = function(release_id, env_id) {
+      private$proj_check()
+      vsts_deploy_release(private$domain, private$project, release = release_id,
+                          env = env_id, private$auth_key)
+    },
+
+    get_build_defs = function(query = NULL) {
+      private$proj_check()
+      vsts_get_build_defs(private$domain, private$project, private$auth_key, query = query)
+    },
+
+    get_release_defs = function() {
+      private$proj_check()
+      vsts_get_release_defs(private$domain, private$project, private$auth_key)
     },
 
     custom_command = function(url, verb, body = NULL, query = NULL) {

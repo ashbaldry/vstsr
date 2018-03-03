@@ -3,6 +3,10 @@
 #' @description
 #' These functions will allow you to scrape project information from Visual Studio.
 #'
+#' @details
+#' For more information about repository API calls check
+#' \url{https://docs.microsoft.com/en-us/rest/api/vsts/git/}.
+#'
 #' @param domain the location of the visual studio server
 #' @param project the name of the project in \code{domain} to look at
 #' @param repo the name of the repository in \code{project} to look at
@@ -13,7 +17,7 @@
 #' @rdname vsts_repo
 #' @export
 vsts_get_repos <- function(domain, project, auth_key, quiet = FALSE) {
-  uri <- paste0('https://', domain, '.visualstudio.com/DefaultCollection/', project, '/_apis/git/repositories?api-version=1.0')
+  uri <- paste0('https://', domain, '.visualstudio.com/', project, '/_apis/git/repositories?api-version=1.0')
 
   response <- httr::GET(uri, httr::add_headers(Authorization = auth_key))
   if(httr::status_code(response) != 200) {
@@ -59,7 +63,8 @@ vsts_delete_repo <- function(domain, project, repo, auth_key, quiet = FALSE) {
     cat('Unable to find', repo, 'in', project, '\n')
     return(invisible(NULL))
   }
-  uri <- paste0('https://', domain, '.visualstudio.com/DefaultCollection/', project, '/_apis/git/repositories/', repo_id, '?api-version=1.0')
+  uri <- paste0('https://', domain, '.visualstudio.com/DefaultCollection/', project,
+                '/_apis/git/repositories/', repo_id, '?api-version=1.0')
 
   response <- httr::DELETE(uri, httr::add_headers(Authorization = auth_key))
   if(response$status_code != 204) {

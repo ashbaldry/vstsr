@@ -17,3 +17,7 @@ still show up if set to \code{TRUE}}
 \description{
 These functions will allow you to scrape project information from Visual Studio.
 }
+\details{
+For more information about project API calls check
+\url{https://docs.microsoft.com/en-us/rest/api/vsts/core/projects}.
+}

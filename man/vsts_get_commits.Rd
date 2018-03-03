@@ -29,3 +29,7 @@ vsts_get_commits(domain, project, repo, auth_key, query = NULL)
 \description{
 These functions will allow you to scrape git repository information from Visual Studio.
 }
+\details{
+For more information about git repository API calls check
+\url{https://docs.microsoft.com/en-us/rest/api/vsts/git/}.
+}

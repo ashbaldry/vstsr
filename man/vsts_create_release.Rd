@@ -2,12 +2,9 @@
 % Please edit documentation in R/release.R
 \name{vsts_create_release}
 \alias{vsts_create_release}
-\alias{vsts_get_release}
 \title{Visual Studio Project Release Information}
 \usage{
 vsts_create_release(domain, project, auth_key, body)
-
-vsts_get_release(domain, project, release, auth_key)
 }
 \arguments{
 \item{domain}{the location of the visual studio server}
@@ -26,9 +23,11 @@ vsts_get_release(domain, project, release, auth_key)
 \item{\code{properties}}{[Date] start date to search from}
 \item{\code{reason}}{[Date] end date to search from}
 }}
-
-\item{release}{ID number of the release to look at}
 }
 \description{
-These functions will allow you to scrape releases information from Visual Studio.
+These functions will allow you to create releases from Visual Studio.
+}
+\details{
+For more information about release  API calls check
+\url{https://docs.microsoft.com/en-us/rest/api/vsts/release/releases}.
 }

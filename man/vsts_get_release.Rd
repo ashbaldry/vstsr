@@ -2,9 +2,12 @@
 % Please edit documentation in R/release.R
 \name{vsts_get_releases}
 \alias{vsts_get_releases}
+\alias{vsts_get_release}
 \title{Visual Studio Project Release Information}
 \usage{
 vsts_get_releases(domain, project, auth_key, query = NULL)
+
+vsts_get_release(domain, project, release, auth_key)
 }
 \arguments{
 \item{domain}{the location of the visual studio server}
@@ -15,9 +18,41 @@ vsts_get_releases(domain, project, auth_key, query = NULL)
 
 \item{query}{a list of extra parameters that can be sent to the API call:
 \describe{
+\item{\code{propertyFilters}}{[character] A comma-delimited list of extended properties to retrieve.}
+\item{\code{tagFilter}}{[character] A comma-delimited list of tags. Only releases with these tags will be returned.}
+\item{\code{isDeleted}}{[logical] Gets the soft deleted releases, if true.}
+\item{\code{sourceBranchFilter}}{[character] Releases with given sourceBranchFilter will be returned.}
+\item{\code{artifactVersionId}}{[character] Releases with given artifactVersionId will be returned.
+E.g. in case of Build artifactType, it is buildId.}
+\item{\code{sourceId}}{[character] Unique identifier of the artifact used. e.g. For build it would be
+{projectGuid}:{BuildDefinitionId}, for Jenkins it would be {JenkinsConnectionId}:{JenkinsDefinitionId},
+for TfsOnPrem it would be {TfsOnPremConnectionId}:{ProjectName}:{TfsOnPremDefinitionId}.
+For third-party artifacts e.g. TeamCity, BitBucket you may refer 'uniqueSourceIdentifier'
+inside vss-extension.json \url{https://github.com/Microsoft/vsts-rm-extensions/blob/master/Extensions.}}
+\item{\code{artifactTypeId}}{[character] Releases with given artifactTypeId will be returned.
+Values can be Build, Jenkins, GitHub, Nuget, Team Build (external), ExternalTFSBuild, Git, TFVC, ExternalTfsXamlBuild.}
+\item{\code{$expand}}{[character] The property that should be expanded in the list of releases.}
+\item{\code{continuationToken}}{[integer] Gets the releases after the continuation token provided.}
+\item{\code{$top}}{[integer] Number of releases to get. Default is 50.}
+\item{\code{queryOrder}}{[character] Gets the results in the defined order of created date for releases.
+Default is descending.}
+\item{\code{maxCreatedTime}}{[Date] Releases that were created before this time.}
+\item{\code{minCreatedTime}}{[Date] Releases that were created after this time.}
+\item{\code{statusFilter}}{[character] Releases that have this status.}
+\item{\code{createdBy}}{[character] Releases created by this user.}
+\item{\code{searchText}}{[character] Releases with names starting with searchText.}
+\item{\code{definitionEnvironmentId}}{[integer] Releases from this release environment Id.}
 \item{\code{definitionId}}{[integer] Releases from this release definition Id.}
+\item{\code{releaseIdFilter}}{[character] A comma-delimited list of releases Ids. Only releases with these
+Ids will be returned.}
 }}
+
+\item{release}{Release Definition ID}
 }
 \description{
-These functions will allow you to scrape release information from Visual Studio.
+These functions will allow you to scrape releases from Visual Studio.
+}
+\details{
+For more information about release API calls check
+\url{https://docs.microsoft.com/en-us/rest/api/vsts/release/releases}.
 }

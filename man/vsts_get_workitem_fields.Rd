@@ -26,3 +26,7 @@ vsts_get_workitem_fields(System.Title, System.Description, System.TeamProject,
 This contains all the fields required of any work item in a visual studio project and helps add/rename the fields of the selected
 work item.
 }
+\details{
+For more information about work item fields API calls check
+\url{https://docs.microsoft.com/en-us/rest/api/vsts/wit/fields}.
+}

@@ -4,12 +4,16 @@
 \name{vsts_account}
 \alias{vsts_account}
 \title{Visual Studio Team Services Account}
-\format{An \code{\link{R6Class}} generator object}
+\format{An \code{\link[R6]{R6Class}} generator object}
 \usage{
 vsts_account
 }
 \description{
 Visual Studio Team Services Account
+}
+\details{
+For the majority of functions that are within this \code{vsts_account} object, you can get help about the
+query or body parameter with \code{?vsts_<function name>}.
 }
 \section{Fields}{
 
@@ -26,8 +30,11 @@ Visual Studio Team Services Account
 }}
 
 \examples{
-proj <- vsts_account$new('<username>', '<password>', '<domain name>', '<project name>', '<repo name>')
+\dontrun{
+proj <- vsts_account$new('<username>', '<password>', '<domain>',
+                         '<project>', '<repo>')
 str(proj)
+}
 
 }
 \keyword{data}

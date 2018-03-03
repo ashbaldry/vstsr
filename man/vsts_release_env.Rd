@@ -20,3 +20,7 @@ vsts_deploy_release(domain, project, release, env, auth_key)
 \description{
 These functions will allow you to run release environment tasks from Visual Studio.
 }
+\details{
+For more information about release environment API calls check
+\url{https://docs.microsoft.com/en-us/rest/api/vsts/release/releases/update\%20release\%20environment}.
+}

@@ -15,9 +15,16 @@ vsts_get_build_defs(domain, project, auth_key, query = NULL)
 
 \item{query}{a list of extra parameters that can be sent to the API call:
 \describe{
-\item{to_complete}{to_complete}
+\item{revision}{[integer] The revision number to retrieve. If this is not specified, the latest version will be returned.}
+\item{minMetricsTime}{[string] If specified, indicates the date from which metrics should be included.}
+\item{propertyFilters}{[string] A comma-delimited list of properties to include in the results.}
+\item{includeLatestBuilds}{[logical]}
 }}
 }
 \description{
 These functions will allow you to scrape build definition information from Visual Studio.
+}
+\details{
+For more information about the build definition API calls check
+\url{https://docs.microsoft.com/en-us/rest/api/vsts/build/definitions}.
 }

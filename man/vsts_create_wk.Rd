@@ -20,3 +20,7 @@ vsts_create_workitem(domain, project, item_type, auth_key, ...)
 \description{
 These functions will allow you to scrape work item infromation from a particular Visual Studio project.
 }
+\details{
+For more information about work item API calls check
+\url{https://docs.microsoft.com/en-us/rest/api/vsts/wit/work\%20items}.
+}

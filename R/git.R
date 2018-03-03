@@ -3,6 +3,10 @@
 #' @description
 #' These functions will allow you to scrape git repository information from Visual Studio.
 #'
+#' @details
+#' For more information about git repository API calls check
+#' \url{https://docs.microsoft.com/en-us/rest/api/vsts/git/}.
+#'
 #' @param domain the location of the visual studio server
 #' @param project the name of the project in \code{domain} to look at
 #' @param repo the name of the repository in \code{project} to look at

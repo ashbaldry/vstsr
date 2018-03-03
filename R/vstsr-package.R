@@ -3,6 +3,8 @@
 #' This package takes a look at the Visual Studio Team Services API calls and wraps them around in easy to use R functions. This
 #' includes looking at projects, repositories, work items, and eventually sections such as builds and releases.
 #'
+#' For more information about Visual Studio Team Services APIs, take a look at \url{https://docs.microsoft.com/en-us/rest/api/vsts}
+#'
 #' @section Projects:
 #' This looks at the projects available in a visual studio instance. This lets you change between any project that you might
 #' have access to.
@@ -13,6 +15,10 @@
 #' @section Work Items:
 #' This will track any existing work item for a project, and also the ability to create a new work item for a project. Useful if working
 #' within a development team and automate inclusion of creating bugs upon creating any certain R error.
+#'
+#' @section Releases:
+#' This will look at the releases available for a project, both the definitions and the actual releases. There is the ability to
+#' deploy the created releases to a new environment.
 #'
 #' @section Custom:
 #' For any non-predefined API service available in the package, it is always possible to run the \code{\link{vsts_run_command}} which
