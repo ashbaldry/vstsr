@@ -1,7 +1,7 @@
 Package: vstsr
 Type: Package
 Title: Visual Studio Team Services Connector
-Version: 0.2.0
+Version: 1.0.0
 Authors@R: person('Ashley', 'Baldry', email = 'arbaldry91@gmail.com', role = c('aut', 'cre'))
 Description: Series of functions that allow API calling to Visual Studio Team Services.
 License: GPL-2
