@@ -21,10 +21,12 @@ Visual Studio Team Services Account
 \item{\code{domain}}{domain name for the Visual Studio account}
 
 \item{\code{project}}{(optional) project name within the domain of the Visual Studio account}
+
+\item{\code{repo}}{(optional) repository name with the project of the Visual Studio domain}
 }}
 
 \examples{
-proj <- vsts_account$new('<username>', '<password>', '<domain name>', '<project name>')
+proj <- vsts_account$new('<username>', '<password>', '<domain name>', '<project name>', '<repo name>')
 str(proj)
 
 }
