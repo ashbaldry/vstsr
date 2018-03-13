@@ -14,6 +14,20 @@
 #' @param quiet logical whether want general running information from printing. Any issue with the API call will
 #' still show up if set to \code{TRUE}
 #'
+#' @examples
+#' #Add in own details to get a non-NULL output
+#' auth_key <- vsts_auth_key('<username>', '<password>')
+#'
+#' #Get repo list
+#' vsts_get_repos('domain', 'project', auth_key)
+#'
+#' #Create new repo
+#' vsts_create_repo('domain', 'project', 'repo', auth_key)
+#'
+#' #Delete existing repo
+#' vsts_delete_repo('domain', 'project', 'repo', auth_key)
+#'
+#'
 #' @rdname vsts_repo
 #' @export
 vsts_get_repos <- function(domain, project, auth_key, quiet = FALSE) {
@@ -27,7 +41,7 @@ vsts_get_repos <- function(domain, project, auth_key, quiet = FALSE) {
 
   content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE) %>% .$value
   if(!quiet) cat('Available repositories:', paste(content$name, collapse = ', '), '\n')
-  return(invisible(content))
+  invisible(content)
 }
 
 #' @rdname vsts_repo
@@ -45,14 +59,18 @@ vsts_create_repo <- function(domain, project, repo, auth_key, quiet = FALSE) {
 
   response <- httr::POST(uri, httr::add_headers(Authorization = auth_key), httr::content_type_json(), body = content_body)
   if(httr::status_code(response) != 201) {
-    fail_msg <- if(httr::status_code(response) == 409) paste('create repository;', repo, 'already exists in', project) else 'create repository'
+    if(httr::status_code(response) == 409) {
+      fail_msg <- paste('create repository;', repo, 'already exists in', project)
+    } else {
+      fail_msg <- 'create repository'
+    }
     cat(httr::http_condition(response, 'message', fail_msg)$message, '\n')
     return(invisible(NULL))
   }
 
   if(!quiet) cat(repo, 'repository has been created in', project, '\n')
   content <- data.frame(httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE))
-  return(invisible(content))
+  invisible(content)
 }
 
 #' @rdname vsts_repo

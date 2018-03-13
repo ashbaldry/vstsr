@@ -56,3 +56,9 @@ These functions will allow you to scrape releases from Visual Studio.
 For more information about release API calls check
 \url{https://docs.microsoft.com/en-us/rest/api/vsts/release/releases}.
 }
+\examples{
+#Add in own details to get a non-NULL output
+auth_key <- vsts_auth_key('<username>', '<password>')
+vsts_get_releases('domain', 'project', auth_key)
+
+}

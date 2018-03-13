@@ -23,3 +23,9 @@ These functions will allow you to scrape release definition information from Vis
 For more information about release definition API calls check
 \url{https://docs.microsoft.com/en-us/rest/api/vsts/release/definitions}.
 }
+\examples{
+#Add in own details to get a non-NULL output
+auth_key <- vsts_auth_key('<username>', '<password>')
+vsts_get_release_defs('domain', 'project', auth_key)
+
+}

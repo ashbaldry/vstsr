@@ -31,3 +31,18 @@ These functions will allow you to scrape project information from Visual Studio.
 For more information about repository API calls check
 \url{https://docs.microsoft.com/en-us/rest/api/vsts/git/}.
 }
+\examples{
+#Add in own details to get a non-NULL output
+auth_key <- vsts_auth_key('<username>', '<password>')
+
+#Get repo list
+vsts_get_repos('domain', 'project', auth_key)
+
+#Create new repo
+vsts_create_repo('domain', 'project', 'repo', auth_key)
+
+#Delete existing repo
+vsts_delete_repo('domain', 'project', 'repo', auth_key)
+
+
+}

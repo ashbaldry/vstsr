@@ -17,3 +17,7 @@ An authentication key string in the form of 'Basic <Base 64 of user:pass>'
 \description{
 Creation of a VSTS authentication key that will be used when running any of the API calls.
 }
+\examples{
+auth_key <- vsts_auth_key('<username>', '<password>')
+
+}

@@ -15,19 +15,35 @@ vsts_create_release(domain, project, auth_key, body)
 
 \item{body}{a list of extra parameters that can need to be sent to the API call (* mandatory):
 \describe{
-\item{\code{artifacts *}}{[character] the name of a branch in the repository (cannot combine with \code{commit})}
-\item{\code{definitionId *}}{[integer] the id of a commit in the repository (cannot combine with \code{branch})}
-\item{\code{description *}}{[character] path of an item in the repository}
-\item{\code{isDraft}}{[character] name of the person who committed the change}
-\item{\code{manualEnvironments}}{[character] name of the author}
-\item{\code{properties}}{[Date] start date to search from}
-\item{\code{reason}}{[Date] end date to search from}
+\item{\code{artifacts *}}{[list] Sets list of artifact to create a release. Check \code{Details} for more information.}
+\item{\code{definitionId *}}{[integer] Sets definition Id to create a release.}
+\item{\code{description *}}{[character] Sets description to create a release.}
+\item{\code{isDraft}}{[logical] Sets 'true' to create release in draft mode, 'false' otherwise.}
+\item{\code{manualEnvironments}}{[character] Sets list of environments to manual as condition.}
+\item{\code{properties}}{[list] The class represents a property bag as a collection of key-value pairs.}
+\item{\code{reason}}{[character] Sets reason to create a release.}
 }}
 }
 \description{
 These functions will allow you to create releases from Visual Studio.
 }
 \details{
+The \code{artifacts} object within the body contains two items:
+\itemize{
+\item{alias}{[character] Sets alias of artifact.}
+\item{instanceReference}{[list] Sets instance reference of artifact. e.g. for build artifact it is build number.}
+}
+
 For more information about release  API calls check
 \url{https://docs.microsoft.com/en-us/rest/api/vsts/release/releases}.
+}
+\examples{
+#Add in own details to get a non-NULL output
+auth_key <- vsts_auth_key('<username>', '<password>')
+art_list <- list(list(alias = 'Art1', instanceReference = list(id = 1)),
+                 list(alias = 'Art2', instanceReference = list(id = 2)))
+body <- list(definitionId = 1, description = 'R API Release',
+             artifacts = I(art_list))
+vsts_create_release('domain', 'project', auth_key, body)
+
 }

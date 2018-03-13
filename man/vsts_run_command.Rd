@@ -25,3 +25,14 @@ to use the relevant API call without any extra requirements.
 
 For the most part it is just a shell of \code{\link[httr]{VERB}} but will have the \code{auth_key} set up already.
 }
+\examples{
+\dontrun{
+auth_key <- vsts_auth_key('<username>', '<password>')
+#Get commits of a repository
+URL <- paste0('https://{accountName}.visualstudio.com/{project}',
+              '/_apis/git/repositories/{repositoryId}/commits/',
+              '{commitId}?api-version=4.1-preview')
+vsts_run_command(URL, 'GET', auth_key)
+}
+
+}

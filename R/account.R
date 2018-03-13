@@ -116,7 +116,7 @@ vsts_account <- R6::R6Class(
 
     get_releases = function(query = NULL) {
       private$proj_check()
-      vsts_get_releases(private$domain, pivate$project, private$auth_key, query = query)
+      vsts_get_releases(private$domain, private$project, private$auth_key, query = query)
     },
 
     get_release = function(id) {

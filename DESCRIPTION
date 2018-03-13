@@ -1,11 +1,14 @@
 Package: vstsr
 Type: Package
-Title: Visual Studio Team Services Connector
+Title: Access to Visual Studio Team Services API via R
 Version: 1.0.0
 Authors@R: person('Ashley', 'Baldry', email = 'arbaldry91@gmail.com', role = c('aut', 'cre'))
-Description: Series of functions that allow API calling to Visual Studio Team Services.
+Description: Implementation of Visual Studio Team Services API calls. It enables the extraction of information about 
+    repositories, build and release definitions and individual releases. It also helps create repositories and work 
+    items within a project without logging into Visual Studio. There is the ability to use any API service with a 
+    shell for the custom call.
 License: GPL-2
-URL: https://github.com/ashbaldry/vstsr
+URL: https://github.com/ashbaldry/vstsr, https://docs.microsoft.com/en-us/rest/api/vsts
 BugReports: https://github.com/ashbaldry/vstsr/issues
 Imports: R6, httr, RCurl, magrittr, jsonlite
 Encoding: UTF-8

@@ -28,3 +28,9 @@ These functions will allow you to scrape build definition information from Visua
 For more information about the build definition API calls check
 \url{https://docs.microsoft.com/en-us/rest/api/vsts/build/definitions}.
 }
+\examples{
+#Add in own details to get a non-NULL output
+auth_key <- vsts_auth_key('<username>', '<password>')
+vsts_get_build_defs('domain', 'project', auth_key)
+
+}

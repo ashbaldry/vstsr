@@ -33,3 +33,9 @@ These functions will allow you to scrape git repository information from Visual 
 For more information about git repository API calls check
 \url{https://docs.microsoft.com/en-us/rest/api/vsts/git/}.
 }
+\examples{
+#Add in own details to get a non-NULL output
+auth_key <- vsts_auth_key('<username>', '<password>')
+vsts_get_commits('domain', 'project', 'repo', auth_key)
+
+}

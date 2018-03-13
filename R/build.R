@@ -18,6 +18,11 @@
 #' \item{includeLatestBuilds}{[logical]}
 #' }
 #'
+#' @examples
+#' #Add in own details to get a non-NULL output
+#' auth_key <- vsts_auth_key('<username>', '<password>')
+#' vsts_get_build_defs('domain', 'project', auth_key)
+#'
 #' @rdname vsts_build_def
 #' @export
 vsts_get_build_defs <- function(domain, project, auth_key, query = NULL) {
@@ -30,5 +35,5 @@ vsts_get_build_defs <- function(domain, project, auth_key, query = NULL) {
   }
 
   content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(.) %>% .$value
-  return(invisible(content))
+  invisible(content)
 }

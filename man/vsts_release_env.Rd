@@ -24,3 +24,9 @@ These functions will allow you to run release environment tasks from Visual Stud
 For more information about release environment API calls check
 \url{https://docs.microsoft.com/en-us/rest/api/vsts/release/releases/update\%20release\%20environment}.
 }
+\examples{
+#Add in own details to get a non-NULL output
+auth_key <- vsts_auth_key('<username>', '<password>')
+vsts_deploy_release('domain', 'project', auth_key, 1, 1)
+
+}

@@ -14,6 +14,16 @@
 #' \url{https://docs.microsoft.com/en-us/rest/api/vsts/} to find out any required parameter for the body.
 #' @param query a list of extra parameters that can be sent to the API call. If not required then leave as \code{NULL}
 #'
+#' @examples
+#' \dontrun{
+#' auth_key <- vsts_auth_key('<username>', '<password>')
+#' #Get commits of a repository
+#' URL <- paste0('https://{accountName}.visualstudio.com/{project}',
+#'               '/_apis/git/repositories/{repositoryId}/commits/',
+#'               '{commitId}?api-version=4.1-preview')
+#' vsts_run_command(URL, 'GET', auth_key)
+#' }
+#'
 #' @export
 vsts_run_command <- function(url, verb, auth_key, body = NULL, query = NULL) {
 
