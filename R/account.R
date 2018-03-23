@@ -68,7 +68,7 @@ vsts_account <- R6::R6Class(
         repo_df <- vsts_get_repos(private$domain, private$project, private$auth_key, quiet = TRUE)
         private$repos <- repo_df$name
       }
-      if(!repo %in% private$projects) stop(repo, ' not in available repositories.')
+      if(!repo %in% private$repos) stop(repo, ' not in available repositories.')
       private$repo <- repo
       invisible(TRUE)
     },
