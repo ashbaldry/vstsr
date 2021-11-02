@@ -23,26 +23,32 @@
 #' }
 #'
 #' @examples
-#' #Add in own details to get a non-NULL output
-#' auth_key <- vsts_auth_key('<username>', '<password>')
-#' vsts_get_commits('domain', 'project', 'repo', auth_key)
+#' \dontrun{
+#' # Add in own details to get a non-NULL output
+#' auth_key <- vsts_auth_key("<username>", "<password>")
+#' vsts_get_commits("domain", "project", "repo", auth_key)
+#' }
 #'
 #' @export
 vsts_get_commits <- function(domain, project, repo, auth_key, query = NULL) {
-  repo_id <- vsts_get_repos(domain, project, auth_key, quiet = TRUE) %>% .[.$name == repo, 'id']
-  if(length(repo_id) == 0) {
-    cat('Unable to find ', repo, ' in ', project, '.\n', sep = '')
+  repo_id <- vsts_get_repos(domain, project, auth_key, quiet = TRUE) %>% .[.$name == repo, "id"]
+  if (length(repo_id) == 0) {
+    cat("Unable to find ", repo, " in ", project, ".\n", sep = "")
     return(invisible(NULL))
   }
-  uri <- paste0('https://', domain, '.visualstudio.com/DefaultCollection/', project, '/_apis/git/repositories/', repo_id,
-                '/commits?api-version=1.0')
+  uri <- paste0(
+    "https://", domain, ".visualstudio.com/DefaultCollection/", project, "/_apis/git/repositories/", repo_id,
+    "/commits?api-version=1.0"
+  )
 
   response <- httr::GET(uri, httr::add_headers(Authorization = auth_key), query = query)
-  if(httr::status_code(response) != 200) {
-    cat(httr::http_condition(response, 'message', 'get commit list')$message, '\n')
+  if (httr::status_code(response) != 200) {
+    cat(httr::http_condition(response, "message", "get commit list")$message, "\n")
     return(invisible(NULL))
   }
 
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE) %>% .$value
+  content <- httr::content(response, as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(., flatten = TRUE) %>%
+    .$value
   return(invisible(content))
 }

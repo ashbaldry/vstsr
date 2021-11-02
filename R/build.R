@@ -19,21 +19,25 @@
 #' }
 #'
 #' @examples
-#' #Add in own details to get a non-NULL output
-#' auth_key <- vsts_auth_key('<username>', '<password>')
-#' vsts_get_build_defs('domain', 'project', auth_key)
+#' \dontrun{
+#' # Add in own details to get a non-NULL output
+#' auth_key <- vsts_auth_key("<username>", "<password>")
+#' vsts_get_build_defs("domain", "project", auth_key)
+#' }
 #'
 #' @rdname vsts_build_def
 #' @export
 vsts_get_build_defs <- function(domain, project, auth_key, query = NULL) {
-  uri <- paste0('https://', domain, '.visualstudio.com/', project, '/_apis/build/builds?api-version=4.1-preview')
+  uri <- paste0("https://", domain, ".visualstudio.com/", project, "/_apis/build/builds?api-version=4.1-preview")
 
   response <- httr::GET(uri, httr::add_headers(Authorization = auth_key), query = query)
-  if(response$status_code != 200) {
-    cat(httr::http_condition(response, 'message', 'get build definition list')$message, '\n')
+  if (response$status_code != 200) {
+    cat(httr::http_condition(response, "message", "get build definition list")$message, "\n")
     return(invisible(NULL))
   }
 
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(.) %>% .$value
+  content <- httr::content(response, as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(.) %>%
+    .$value
   invisible(content)
 }

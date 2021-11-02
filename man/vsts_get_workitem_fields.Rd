@@ -4,8 +4,15 @@
 \alias{vsts_get_workitem_fields}
 \title{Visual Studio Work Item Fields}
 \usage{
-vsts_get_workitem_fields(System.Title, System.Description, System.TeamProject,
-  System.AreaPath, System.IterationPath, Microsoft.VSTS.Common.Priority, ...)
+vsts_get_workitem_fields(
+  System.Title,
+  System.Description,
+  System.TeamProject,
+  System.AreaPath,
+  System.IterationPath,
+  Microsoft.VSTS.Common.Priority,
+  ...
+)
 }
 \arguments{
 \item{System.Title}{[character] title of the Visual Studio work item}

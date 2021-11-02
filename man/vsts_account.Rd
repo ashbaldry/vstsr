@@ -4,19 +4,70 @@
 \name{vsts_account}
 \alias{vsts_account}
 \title{Visual Studio Team Services Account}
-\format{An \code{\link[R6]{R6Class}} generator object}
-\usage{
-vsts_account
+\format{
+An \code{\link[R6]{R6Class}} generator object
 }
 \description{
+Visual Studio Team Services Account
+
 Visual Studio Team Services Account
 }
 \details{
 For the majority of functions that are within this \code{vsts_account} object, you can get help about the
 query or body parameter with \code{?vsts_<function name>}.
 }
-\section{Fields}{
+\examples{
+\dontrun{
+proj <- vsts_account$new(
+  "<username>", "<password>", "<domain>",
+  "<project>", "<repo>"
+)
+str(proj)
+}
 
+}
+\keyword{data}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{vsts_account$new()}}
+\item \href{#method-set_domain}{\code{vsts_account$set_domain()}}
+\item \href{#method-set_project}{\code{vsts_account$set_project()}}
+\item \href{#method-set_repo}{\code{vsts_account$set_repo()}}
+\item \href{#method-get_projects}{\code{vsts_account$get_projects()}}
+\item \href{#method-get_repos}{\code{vsts_account$get_repos()}}
+\item \href{#method-create_repo}{\code{vsts_account$create_repo()}}
+\item \href{#method-delete_repo}{\code{vsts_account$delete_repo()}}
+\item \href{#method-get_commits}{\code{vsts_account$get_commits()}}
+\item \href{#method-get_workitems}{\code{vsts_account$get_workitems()}}
+\item \href{#method-get_workitem}{\code{vsts_account$get_workitem()}}
+\item \href{#method-create_workitem}{\code{vsts_account$create_workitem()}}
+\item \href{#method-get_releases}{\code{vsts_account$get_releases()}}
+\item \href{#method-get_release}{\code{vsts_account$get_release()}}
+\item \href{#method-create_release}{\code{vsts_account$create_release()}}
+\item \href{#method-deploy_release}{\code{vsts_account$deploy_release()}}
+\item \href{#method-get_build_defs}{\code{vsts_account$get_build_defs()}}
+\item \href{#method-get_release_defs}{\code{vsts_account$get_release_defs()}}
+\item \href{#method-custom_command}{\code{vsts_account$custom_command()}}
+\item \href{#method-clone}{\code{vsts_account$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$new(
+  user = NA,
+  pass = NA,
+  domain = NA,
+  project = NULL,
+  repo = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{user}}{username for the Visual Studio account}
 
@@ -27,14 +78,208 @@ query or body parameter with \code{?vsts_<function name>}.
 \item{\code{project}}{(optional) project name within the domain of the Visual Studio account}
 
 \item{\code{repo}}{(optional) repository name with the project of the Visual Studio domain}
-}}
-
-\examples{
-\dontrun{
-proj <- vsts_account$new('<username>', '<password>', '<domain>',
-                         '<project>', '<repo>')
-str(proj)
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-set_domain"></a>}}
+\if{latex}{\out{\hypertarget{method-set_domain}{}}}
+\subsection{Method \code{set_domain()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$set_domain(dom)}\if{html}{\out{</div>}}
 }
 
 }
-\keyword{data}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-set_project"></a>}}
+\if{latex}{\out{\hypertarget{method-set_project}{}}}
+\subsection{Method \code{set_project()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$set_project(proj)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-set_repo"></a>}}
+\if{latex}{\out{\hypertarget{method-set_repo}{}}}
+\subsection{Method \code{set_repo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$set_repo(repo)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{repo}}{(optional) repository name with the project of the Visual Studio domain}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_projects"></a>}}
+\if{latex}{\out{\hypertarget{method-get_projects}{}}}
+\subsection{Method \code{get_projects()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$get_projects()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_repos"></a>}}
+\if{latex}{\out{\hypertarget{method-get_repos}{}}}
+\subsection{Method \code{get_repos()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$get_repos()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-create_repo"></a>}}
+\if{latex}{\out{\hypertarget{method-create_repo}{}}}
+\subsection{Method \code{create_repo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$create_repo(repo)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{repo}}{(optional) repository name with the project of the Visual Studio domain}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-delete_repo"></a>}}
+\if{latex}{\out{\hypertarget{method-delete_repo}{}}}
+\subsection{Method \code{delete_repo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$delete_repo(repo)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{repo}}{(optional) repository name with the project of the Visual Studio domain}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_commits"></a>}}
+\if{latex}{\out{\hypertarget{method-get_commits}{}}}
+\subsection{Method \code{get_commits()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$get_commits(query = NULL)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_workitems"></a>}}
+\if{latex}{\out{\hypertarget{method-get_workitems}{}}}
+\subsection{Method \code{get_workitems()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$get_workitems(query = NULL)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_workitem"></a>}}
+\if{latex}{\out{\hypertarget{method-get_workitem}{}}}
+\subsection{Method \code{get_workitem()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$get_workitem(id)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-create_workitem"></a>}}
+\if{latex}{\out{\hypertarget{method-create_workitem}{}}}
+\subsection{Method \code{create_workitem()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$create_workitem(item_type, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_releases"></a>}}
+\if{latex}{\out{\hypertarget{method-get_releases}{}}}
+\subsection{Method \code{get_releases()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$get_releases(query = NULL)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_release"></a>}}
+\if{latex}{\out{\hypertarget{method-get_release}{}}}
+\subsection{Method \code{get_release()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$get_release(id)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-create_release"></a>}}
+\if{latex}{\out{\hypertarget{method-create_release}{}}}
+\subsection{Method \code{create_release()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$create_release(body = NULL)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-deploy_release"></a>}}
+\if{latex}{\out{\hypertarget{method-deploy_release}{}}}
+\subsection{Method \code{deploy_release()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$deploy_release(release_id, env_id)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_build_defs"></a>}}
+\if{latex}{\out{\hypertarget{method-get_build_defs}{}}}
+\subsection{Method \code{get_build_defs()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$get_build_defs(query = NULL)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_release_defs"></a>}}
+\if{latex}{\out{\hypertarget{method-get_release_defs}{}}}
+\subsection{Method \code{get_release_defs()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$get_release_defs()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-custom_command"></a>}}
+\if{latex}{\out{\hypertarget{method-custom_command}{}}}
+\subsection{Method \code{custom_command()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$custom_command(url, verb, body = NULL, query = NULL)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{vsts_account$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

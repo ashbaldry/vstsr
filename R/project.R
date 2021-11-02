@@ -15,15 +15,17 @@
 #' @rdname vsts_project
 #' @export
 vsts_get_projects <- function(domain, auth_key, quiet = FALSE) {
-  uri <- paste0('https://', domain, '.visualstudio.com/_apis/projects?api-version=1.0')
+  uri <- paste0("https://", domain, ".visualstudio.com/_apis/projects?api-version=1.0")
 
   response <- httr::GET(uri, httr::add_headers(Authorization = auth_key))
-  if(httr::status_code(response) != 200) {
-    cat(httr::http_condition(response, 'message', 'get project list')$message, '\n')
+  if (httr::status_code(response) != 200) {
+    cat(httr::http_condition(response, "message", "get project list")$message, "\n")
     return(invisible(NULL))
   }
 
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE) %>% .$value
-  if(!quiet) cat('Available projects:', paste(content$name, collapse = ', '), '\n')
+  content <- httr::content(response, as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(., flatten = TRUE) %>%
+    .$value
+  if (!quiet) cat("Available projects:", paste(content$name, collapse = ", "), "\n")
   return(invisible(content))
 }

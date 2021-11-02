@@ -27,12 +27,14 @@ For the most part it is just a shell of \code{\link[httr]{VERB}} but will have t
 }
 \examples{
 \dontrun{
-auth_key <- vsts_auth_key('<username>', '<password>')
-#Get commits of a repository
-URL <- paste0('https://{accountName}.visualstudio.com/{project}',
-              '/_apis/git/repositories/{repositoryId}/commits/',
-              '{commitId}?api-version=4.1-preview')
-vsts_run_command(URL, 'GET', auth_key)
+auth_key <- vsts_auth_key("<username>", "<password>")
+# Get commits of a repository
+URL <- paste0(
+  "https://{accountName}.visualstudio.com/{project}",
+  "/_apis/git/repositories/{repositoryId}/commits/",
+  "{commitId}?api-version=4.1-preview"
+)
+vsts_run_command(URL, "GET", auth_key)
 }
 
 }

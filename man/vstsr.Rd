@@ -3,7 +3,6 @@
 \docType{package}
 \name{vstsr}
 \alias{vstsr}
-\alias{vstsr-package}
 \title{vstsr: A package connecting R and Visual Studio}
 \description{
 This package takes a look at the Visual Studio Team Services API calls and wraps them around in easy to use R functions. This

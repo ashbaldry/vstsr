@@ -15,81 +15,88 @@
 #' still show up if set to \code{TRUE}
 #'
 #' @examples
-#' #Add in own details to get a non-NULL output
-#' auth_key <- vsts_auth_key('<username>', '<password>')
+#' \dontrun{
+#' # Add in own details to get a non-NULL output
+#' auth_key <- vsts_auth_key("<username>", "<password>")
 #'
-#' #Get repo list
-#' vsts_get_repos('domain', 'project', auth_key)
+#' # Get repo list
+#' vsts_get_repos("domain", "project", auth_key)
 #'
-#' #Create new repo
-#' vsts_create_repo('domain', 'project', 'repo', auth_key)
+#' # Create new repo
+#' vsts_create_repo("domain", "project", "repo", auth_key)
 #'
-#' #Delete existing repo
-#' vsts_delete_repo('domain', 'project', 'repo', auth_key)
-#'
+#' # Delete existing repo
+#' vsts_delete_repo("domain", "project", "repo", auth_key)
+#' }
 #'
 #' @rdname vsts_repo
 #' @export
 vsts_get_repos <- function(domain, project, auth_key, quiet = FALSE) {
-  uri <- paste0('https://', domain, '.visualstudio.com/', project, '/_apis/git/repositories?api-version=1.0')
+  uri <- paste0("https://", domain, ".visualstudio.com/", project, "/_apis/git/repositories?api-version=1.0")
 
   response <- httr::GET(uri, httr::add_headers(Authorization = auth_key))
-  if(httr::status_code(response) != 200) {
-    cat(httr::http_condition(response, 'message', 'get repos list')$message, '\n')
+  if (httr::status_code(response) != 200) {
+    cat(httr::http_condition(response, "message", "get repos list")$message, "\n")
     return(invisible(NULL))
   }
 
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE) %>% .$value
-  if(!quiet) cat('Available repositories:', paste(content$name, collapse = ', '), '\n')
+  content <- httr::content(response, as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(., flatten = TRUE) %>%
+    .$value
+  if (!quiet) cat("Available repositories:", paste(content$name, collapse = ", "), "\n")
   invisible(content)
 }
 
 #' @rdname vsts_repo
 #' @export
 vsts_create_repo <- function(domain, project, repo, auth_key, quiet = FALSE) {
-  uri <- paste0('https://', domain, '.visualstudio.com/DefaultCollection/_apis/git/repositories?api-version=1.0')
-  proj_id <- vsts_get_projects(domain, auth_key, quiet = TRUE) %>% .[.$name == project, 'id']
-  if(is.null(proj_id)) return(invisible(NULL))
-  if(length(proj_id) == 0) {
-    cat('Unable to find', project, 'in', domain, '\n')
+  uri <- paste0("https://", domain, ".visualstudio.com/DefaultCollection/_apis/git/repositories?api-version=1.0")
+  proj_id <- vsts_get_projects(domain, auth_key, quiet = TRUE) %>% .[.$name == project, "id"]
+  if (is.null(proj_id)) {
+    return(invisible(NULL))
+  }
+  if (length(proj_id) == 0) {
+    cat("Unable to find", project, "in", domain, "\n")
     return(invisible(NULL))
   }
 
   content_body <- jsonlite::toJSON(list(name = repo, project = list(id = proj_id)), auto_unbox = TRUE)
 
   response <- httr::POST(uri, httr::add_headers(Authorization = auth_key), httr::content_type_json(), body = content_body)
-  if(httr::status_code(response) != 201) {
-    if(httr::status_code(response) == 409) {
-      fail_msg <- paste('create repository;', repo, 'already exists in', project)
+  if (httr::status_code(response) != 201) {
+    if (httr::status_code(response) == 409) {
+      fail_msg <- paste("create repository;", repo, "already exists in", project)
     } else {
-      fail_msg <- 'create repository'
+      fail_msg <- "create repository"
     }
-    cat(httr::http_condition(response, 'message', fail_msg)$message, '\n')
+    cat(httr::http_condition(response, "message", fail_msg)$message, "\n")
     return(invisible(NULL))
   }
 
-  if(!quiet) cat(repo, 'repository has been created in', project, '\n')
-  content <- data.frame(httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE))
+  if (!quiet) cat(repo, "repository has been created in", project, "\n")
+  content <- data.frame(httr::content(response, as = "text", encoding = "UTF-8") %>% jsonlite::fromJSON(., flatten = TRUE))
   invisible(content)
 }
 
 #' @rdname vsts_repo
 #' @export
 vsts_delete_repo <- function(domain, project, repo, auth_key, quiet = FALSE) {
-  repo_id <- vsts_get_repos(domain, project, auth_key, quiet = TRUE) %>% .[.$name == repo, 'id']
-  if(length(repo_id) == 0) {
-    cat('Unable to find', repo, 'in', project, '\n')
+  repo_id <- vsts_get_repos(domain, project, auth_key, quiet = TRUE) %>% .[.$name == repo, "id"]
+  if (length(repo_id) == 0) {
+    cat("Unable to find", repo, "in", project, "\n")
     return(invisible(NULL))
   }
-  uri <- paste0('https://', domain, '.visualstudio.com/DefaultCollection/', project,
-                '/_apis/git/repositories/', repo_id, '?api-version=1.0')
+  uri <- paste0(
+    "https://", domain, ".visualstudio.com/DefaultCollection/", project,
+    "/_apis/git/repositories/", repo_id, "?api-version=1.0"
+  )
 
   response <- httr::DELETE(uri, httr::add_headers(Authorization = auth_key))
-  if(response$status_code != 204) {
-    cat('Unable to perform request, status code:', response$status_code, '\n')
+  if (response$status_code != 204) {
+    cat("Unable to perform request, status code:", response$status_code, "\n")
     return(invisible(NULL))
   }
 
-  if(!quiet) cat(repo, 'repository has been deleted from', project, '\n')
+  if (!quiet) cat(repo, "repository has been deleted from", project, "\n")
   return(invisible(TRUE))
 }

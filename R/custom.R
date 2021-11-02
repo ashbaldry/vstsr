@@ -16,27 +16,30 @@
 #'
 #' @examples
 #' \dontrun{
-#' auth_key <- vsts_auth_key('<username>', '<password>')
-#' #Get commits of a repository
-#' URL <- paste0('https://{accountName}.visualstudio.com/{project}',
-#'               '/_apis/git/repositories/{repositoryId}/commits/',
-#'               '{commitId}?api-version=4.1-preview')
-#' vsts_run_command(URL, 'GET', auth_key)
+#' auth_key <- vsts_auth_key("<username>", "<password>")
+#' # Get commits of a repository
+#' URL <- paste0(
+#'   "https://{accountName}.visualstudio.com/{project}",
+#'   "/_apis/git/repositories/{repositoryId}/commits/",
+#'   "{commitId}?api-version=4.1-preview"
+#' )
+#' vsts_run_command(URL, "GET", auth_key)
 #' }
 #'
 #' @export
 vsts_run_command <- function(url, verb, auth_key, body = NULL, query = NULL) {
+  content_body <- if (!is.null(body)) jsonlite::toJSON(body, auto_unbox = TRUE) else NULL
 
-  content_body <- if(!is.null(body)) jsonlite::toJSON(body, auto_unbox = TRUE) else NULL
+  response <- httr::VERB(
+    verb = verb, url = url, config = httr::add_headers(Authorization = auth_key),
+    httr::content_type_json(), query = query, body = content_body
+  )
 
-  response <- httr::VERB(verb = verb, url = url, config = httr::add_headers(Authorization = auth_key),
-                         httr::content_type_json(), query = query, body = content_body)
-
-  if(httr::status_code(response) >= 300) {
-    cat(httr::http_condition(response, 'message', 'run custom command')$message, '\n')
+  if (httr::status_code(response) >= 300) {
+    cat(httr::http_condition(response, "message", "run custom command")$message, "\n")
     return(invisible(NULL))
   }
 
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE)
+  content <- httr::content(response, as = "text", encoding = "UTF-8") %>% jsonlite::fromJSON(., flatten = TRUE)
   return(invisible(content))
 }

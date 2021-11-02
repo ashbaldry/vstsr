@@ -38,12 +38,17 @@ For more information about release  API calls check
 \url{https://docs.microsoft.com/en-us/rest/api/vsts/release/releases}.
 }
 \examples{
-#Add in own details to get a non-NULL output
-auth_key <- vsts_auth_key('<username>', '<password>')
-art_list <- list(list(alias = 'Art1', instanceReference = list(id = 1)),
-                 list(alias = 'Art2', instanceReference = list(id = 2)))
-body <- list(definitionId = 1, description = 'R API Release',
-             artifacts = I(art_list))
-vsts_create_release('domain', 'project', auth_key, body)
-
+\dontrun{
+# Add in own details to get a non-NULL output
+auth_key <- vsts_auth_key("<username>", "<password>")
+art_list <- list(
+  list(alias = "Art1", instanceReference = list(id = 1)),
+  list(alias = "Art2", instanceReference = list(id = 2))
+)
+body <- list(
+  definitionId = 1, description = "R API Release",
+  artifacts = I(art_list)
+)
+vsts_create_release("domain", "project", auth_key, body)
+}
 }

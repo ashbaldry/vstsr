@@ -14,23 +14,27 @@
 #' issue with the API call will still show up if set to \code{TRUE}
 #'
 #' @examples
-#' #Add in own details to get a non-NULL output
-#' auth_key <- vsts_auth_key('<username>', '<password>')
-#' vsts_get_release_defs('domain', 'project', auth_key)
+#' \dontrun{
+#' # Add in own details to get a non-NULL output
+#' auth_key <- vsts_auth_key("<username>", "<password>")
+#' vsts_get_release_defs("domain", "project", auth_key)
+#' }
 #'
 #' @rdname vsts_release_def
 #' @export
 vsts_get_release_defs <- function(domain, project, auth_key, quiet = FALSE) {
-  uri <- paste0('https://', domain, '.vsrm.visualstudio.com/', project, '/_apis/release/definitions')
+  uri <- paste0("https://", domain, ".vsrm.visualstudio.com/", project, "/_apis/release/definitions")
 
   response <- httr::GET(uri, httr::add_headers(Authorization = auth_key))
-  if(response$status_code != 200) {
-    cat(httr::http_condition(response, 'message', 'get release definition list')$message, '\n')
+  if (response$status_code != 200) {
+    cat(httr::http_condition(response, "message", "get release definition list")$message, "\n")
     return(invisible(NULL))
   }
 
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE) %>% .$value
-  if(!quiet) cat('Available release definitions:', paste(content$name, collapse = ', '), '\n')
+  content <- httr::content(response, as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(., flatten = TRUE) %>%
+    .$value
+  if (!quiet) cat("Available release definitions:", paste(content$name, collapse = ", "), "\n")
   return(invisible(content))
 }
 
@@ -64,29 +68,37 @@ vsts_get_release_defs <- function(domain, project, auth_key, quiet = FALSE) {
 #' }
 #'
 #' @examples
-#' #Add in own details to get a non-NULL output
-#' auth_key <- vsts_auth_key('<username>', '<password>')
-#' art_list <- list(list(alias = 'Art1', instanceReference = list(id = 1)),
-#'                  list(alias = 'Art2', instanceReference = list(id = 2)))
-#' body <- list(definitionId = 1, description = 'R API Release',
-#'              artifacts = I(art_list))
-#' vsts_create_release('domain', 'project', auth_key, body)
-#'
+#' \dontrun{
+#' # Add in own details to get a non-NULL output
+#' auth_key <- vsts_auth_key("<username>", "<password>")
+#' art_list <- list(
+#'   list(alias = "Art1", instanceReference = list(id = 1)),
+#'   list(alias = "Art2", instanceReference = list(id = 2))
+#' )
+#' body <- list(
+#'   definitionId = 1, description = "R API Release",
+#'   artifacts = I(art_list)
+#' )
+#' vsts_create_release("domain", "project", auth_key, body)
+#' }
 #' @export
 vsts_create_release <- function(domain, project, auth_key, body) {
-  uri <- paste0('https://', domain, '.vsrm.visualstudio.com/', project, '/_apis/release/releases?api-version=4.1-preview.6')
+  uri <- paste0("https://", domain, ".vsrm.visualstudio.com/", project, "/_apis/release/releases?api-version=4.1-preview.6")
 
   content_body <- jsonlite::toJSON(body, auto_unbox = TRUE)
 
   response <- httr::POST(uri, httr::add_headers(Authorization = auth_key),
-                         httr::content_type('application/json'), body = content_body)
-  if(httr::status_code(response) != 200) {
+    httr::content_type("application/json"),
+    body = content_body
+  )
+  if (httr::status_code(response) != 200) {
     cat(httr::http_condition(
-      response, 'message', paste0('create release definition #', body$definitionId))$message, '\n')
+      response, "message", paste0("create release definition #", body$definitionId)
+    )$message, "\n")
     return(invisible(NULL))
   }
 
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(.)
+  content <- httr::content(response, as = "text", encoding = "UTF-8") %>% jsonlite::fromJSON(.)
   invisible(content)
 }
 
@@ -134,22 +146,26 @@ vsts_create_release <- function(domain, project, auth_key, body) {
 #' }
 #'
 #' @examples
-#' #Add in own details to get a non-NULL output
-#' auth_key <- vsts_auth_key('<username>', '<password>')
-#' vsts_get_releases('domain', 'project', auth_key)
+#' \dontrun{
+#' # Add in own details to get a non-NULL output
+#' auth_key <- vsts_auth_key("<username>", "<password>")
+#' vsts_get_releases("domain", "project", auth_key)
+#' }
 #'
 #' @rdname vsts_get_release
 #' @export
 vsts_get_releases <- function(domain, project, auth_key, query = NULL) {
-  uri <- paste0('https://', domain, '.vsrm.visualstudio.com/', project, '/_apis/release/releases?api-version=4.1-preview.6')
+  uri <- paste0("https://", domain, ".vsrm.visualstudio.com/", project, "/_apis/release/releases?api-version=4.1-preview.6")
 
   response <- httr::GET(uri, httr::add_headers(Authorization = auth_key), query = query)
-  if(httr::status_code(response) != 200) {
-    cat(httr::http_condition(response, 'message', 'get release definitions')$message, '\n')
+  if (httr::status_code(response) != 200) {
+    cat(httr::http_condition(response, "message", "get release definitions")$message, "\n")
     return(invisible(NULL))
   }
 
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE) %>% .$value
+  content <- httr::content(response, as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(., flatten = TRUE) %>%
+    .$value
   invisible(content)
 }
 
@@ -158,16 +174,18 @@ vsts_get_releases <- function(domain, project, auth_key, query = NULL) {
 #' @rdname vsts_get_release
 #' @export
 vsts_get_release <- function(domain, project, release, auth_key) {
-  uri <- paste0('https://', domain, '.vsrm.visualstudio.com/', project, '/_apis/release/releases/', release,
-                '?api-version=4.1-preview.6')
+  uri <- paste0(
+    "https://", domain, ".vsrm.visualstudio.com/", project, "/_apis/release/releases/", release,
+    "?api-version=4.1-preview.6"
+  )
 
-  response <- httr::GET(uri, httr::add_headers(Authorization = auth_key), httr::content_type('application/json'))
-  if(httr::status_code(response) != 200) {
-    cat(httr::http_condition(response, 'message', 'Get release definitions')$message, '\n')
+  response <- httr::GET(uri, httr::add_headers(Authorization = auth_key), httr::content_type("application/json"))
+  if (httr::status_code(response) != 200) {
+    cat(httr::http_condition(response, "message", "Get release definitions")$message, "\n")
     return(invisible(NULL))
   }
 
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(.)
+  content <- httr::content(response, as = "text", encoding = "UTF-8") %>% jsonlite::fromJSON(.)
   invisible(content)
 }
 
@@ -187,26 +205,32 @@ vsts_get_release <- function(domain, project, release, auth_key) {
 #' @param auth_key authentication key generated by using \code{\link{vsts_auth_key}}
 #'
 #' @examples
-#' #Add in own details to get a non-NULL output
-#' auth_key <- vsts_auth_key('<username>', '<password>')
-#' vsts_deploy_release('domain', 'project', auth_key, 1, 1)
+#' \dontrun{
+#' # Add in own details to get a non-NULL output
+#' auth_key <- vsts_auth_key("<username>", "<password>")
+#' vsts_deploy_release("domain", "project", auth_key, 1, 1)
+#' }
 #'
 #' @rdname vsts_release_env
 #' @export
 vsts_deploy_release <- function(domain, project, release, env, auth_key) {
-  uri <- paste0('https://', domain, '.vsrm.visualstudio.com/', project, '/_apis/Release/releases/', release,
-                '/environments/', env, '?api-version=4.1-preview.5')
+  uri <- paste0(
+    "https://", domain, ".vsrm.visualstudio.com/", project, "/_apis/Release/releases/", release,
+    "/environments/", env, "?api-version=4.1-preview.5"
+  )
 
-  content_body <- jsonlite::toJSON(list(status = 'inProgress'), auto_unbox = TRUE)
+  content_body <- jsonlite::toJSON(list(status = "inProgress"), auto_unbox = TRUE)
 
   response <- httr::PATCH(uri, httr::add_headers(Authorization = auth_key),
-                          httr::content_type('application/json'), body = content_body)
-  if(httr::status_code(response) != 200) {
-    cat(httr::http_condition(response, 'message', httr::content(response)$message)$message, '\n')
+    httr::content_type("application/json"),
+    body = content_body
+  )
+  if (httr::status_code(response) != 200) {
+    cat(httr::http_condition(response, "message", httr::content(response)$message)$message, "\n")
     return(invisible(NULL))
   }
 
-  cat('Deployment of release has started.\n')
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE)
+  cat("Deployment of release has started.\n")
+  content <- httr::content(response, as = "text", encoding = "UTF-8") %>% jsonlite::fromJSON(., flatten = TRUE)
   invisible(content)
 }

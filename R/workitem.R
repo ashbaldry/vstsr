@@ -24,30 +24,34 @@
 #' @rdname vsts_get_wk
 #' @export
 vsts_get_workitems <- function(domain, auth_key, query = NULL) {
-  uri <- paste0('https://', domain, '.visualstudio.com/DefaultCollection/_apis/wit/workitems?api-version=1.0')
+  uri <- paste0("https://", domain, ".visualstudio.com/DefaultCollection/_apis/wit/workitems?api-version=1.0")
 
   response <- httr::GET(uri, httr::add_headers(Authorization = auth_key), query = query)
-  if(httr::status_code(response) != 200) {
-    cat(httr::http_condition(response, 'message', 'get work items list')$message, '\n')
+  if (httr::status_code(response) != 200) {
+    cat(httr::http_condition(response, "message", "get work items list")$message, "\n")
     return(invisible(NULL))
   }
 
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE) %>% .$value
+  content <- httr::content(response, as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(., flatten = TRUE) %>%
+    .$value
   return(invisible(content))
 }
 
 #' @rdname vsts_get_wk
 #' @export
 vsts_get_workitem <- function(domain, auth_key, id) {
-  uri <- paste0('https://', domain, '.visualstudio.com/DefaultCollection/_apis/wit/workitems/', id, '?api-version=1.0')
+  uri <- paste0("https://", domain, ".visualstudio.com/DefaultCollection/_apis/wit/workitems/", id, "?api-version=1.0")
 
   response <- httr::GET(uri, httr::add_headers(Authorization = auth_key))
-  if(httr::status_code(response) != 200) {
-    cat(httr::http_condition(response, 'message', paste0('get work item #', id))$message, '\n')
+  if (httr::status_code(response) != 200) {
+    cat(httr::http_condition(response, "message", paste0("get work item #", id))$message, "\n")
     return(invisible(NULL))
   }
 
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE) %>% .$value
+  content <- httr::content(response, as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(., flatten = TRUE) %>%
+    .$value
   return(invisible(content))
 }
 
@@ -69,42 +73,49 @@ vsts_get_workitem <- function(domain, auth_key, id) {
 #' @rdname vsts_create_wk
 #' @export
 vsts_create_workitem <- function(domain, project, item_type, auth_key, ...) {
-  #Get work item types to reference
+  # Get work item types to reference
   item_types <- vsts_get_itemtypes(domain, project, auth_key) %>% .$name
   item_type <- item_types[match(tolower(item_type), tolower(item_types))]
-  if(is.na(item_type)) {
-    cat('item_type not available for project. Select from:', paste(item_types, collapse = ', '), '\n')
+  if (is.na(item_type)) {
+    cat("item_type not available for project. Select from:", paste(item_types, collapse = ", "), "\n")
     return(invisible(NULL))
   }
 
-  uri <- paste0('https://', domain, '.visualstudio.com/DefaultCollection/', project, '/_apis/wit/workitems/$',
-                gsub(' ', '%20', item_type), '?api-version=1.0')
+  uri <- paste0(
+    "https://", domain, ".visualstudio.com/DefaultCollection/", project, "/_apis/wit/workitems/$",
+    gsub(" ", "%20", item_type), "?api-version=1.0"
+  )
 
   content_info <- vsts_get_workitem_fields(...)
-  content_body <- jsonlite::toJSON(apply(content_info, 1, function(x)
-    list(op = 'add', path = paste0('/fields/', x['Field']), value = x['Value'])), auto_unbox = TRUE)
+  content_body <- jsonlite::toJSON(apply(content_info, 1, function(x) {
+    list(op = "add", path = paste0("/fields/", x["Field"]), value = x["Value"])
+  }), auto_unbox = TRUE)
 
   response <- httr::PATCH(uri, httr::add_headers(Authorization = auth_key),
-                          httr::content_type('application/json-patch+json'), body = content_body)
-  if(httr::status_code(response) != 200) {
-    cat(httr::http_condition(response, 'message', paste('add', item_type, 'to', project))$message, '\n')
+    httr::content_type("application/json-patch+json"),
+    body = content_body
+  )
+  if (httr::status_code(response) != 200) {
+    cat(httr::http_condition(response, "message", paste("add", item_type, "to", project))$message, "\n")
     return(invisible(NULL))
   }
 
-  content <- as.data.frame(httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE))
+  content <- as.data.frame(httr::content(response, as = "text", encoding = "UTF-8") %>% jsonlite::fromJSON(., flatten = TRUE))
   return(invisible(content))
 }
 
 vsts_get_itemtypes <- function(domain, project, auth_key) {
-  uri <- paste0('https://', domain, '.visualstudio.com/DefaultCollection/', project, '/_apis/wit/workItemTypes?api-version=1.0')
+  uri <- paste0("https://", domain, ".visualstudio.com/DefaultCollection/", project, "/_apis/wit/workItemTypes?api-version=1.0")
 
   response <- httr::GET(uri, httr::add_headers(Authorization = auth_key))
-  if(httr::status_code(response) != 200) {
-    cat(httr::http_condition(response, 'message', 'get item types')$message, '\n')
+  if (httr::status_code(response) != 200) {
+    cat(httr::http_condition(response, "message", "get item types")$message, "\n")
     return(invisible(NULL))
   }
 
-  content <- httr::content(response, as = 'text', encoding = 'UTF-8') %>% jsonlite::fromJSON(., flatten = TRUE) %>% .$value
+  content <- httr::content(response, as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(., flatten = TRUE) %>%
+    .$value
   return(invisible(content))
 }
 

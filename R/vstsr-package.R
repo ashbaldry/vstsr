@@ -34,4 +34,4 @@ NULL
 #' @importFrom magrittr %>%
 #' @importFrom jsonlite toJSON fromJSON
 
-globalVariables(c('.'))
+globalVariables(c("."))
