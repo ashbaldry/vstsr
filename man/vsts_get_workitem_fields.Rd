@@ -35,5 +35,5 @@ add/rename the fields of the selected work item.
 }
 \details{
 For more information about work item fields API calls check
-\url{https://docs.microsoft.com/en-us/rest/api/vsts/wit/fields}.
+\url{https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/Fields}.
 }

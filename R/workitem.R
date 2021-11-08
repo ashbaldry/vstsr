@@ -123,7 +123,7 @@ vsts_get_itemtypes <- function(domain, project, auth_key) {
 #'
 #' @details
 #' For more information about work item fields API calls check
-#' \url{https://docs.microsoft.com/en-us/rest/api/vsts/wit/fields}.
+#' \url{https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/Fields}.
 #'
 #' @param System.Title [character] title of the Azure DevOps work item
 #' @param System.Description [character] description of the Azure DevOps work item

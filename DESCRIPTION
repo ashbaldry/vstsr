@@ -3,7 +3,7 @@ Type: Package
 Title: Access to 'Azure DevOps' API via R
 Version: 1.1.0
 Authors@R: person('Ashley', 'Baldry', email = 'arbaldry91@gmail.com', role = c('aut', 'cre'))
-Description: Implementation of 'Azure DevOps' <https://dev.azure.com/> API calls. 
+Description: Implementation of 'Azure DevOps' <https://azure.microsoft.com/> API calls. 
     It enables the extraction of information about repositories, build and release definitions and individual releases. 
     It also helps create repositories and work items within a project without logging into 'Azure DevOps'. 
     There is the ability to use any API service with a shell for any non-predefined call.
