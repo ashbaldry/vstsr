@@ -5,6 +5,9 @@
 
 The aim of `vstsr` is to make it easier to connect between R and Azure DevOps.
 
+**N.B.** This used to link to Visual Studio Team Services, as part of 1.1 release this will point to the Azure
+DevOps APIs instead.
+
 Commands will include getting repository information, git services and work item information.
 
 ## Installation
