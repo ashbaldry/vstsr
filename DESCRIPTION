@@ -1,7 +1,7 @@
 Package: vstsr
 Type: Package
 Title: Access to 'Azure DevOps' API via R
-Version: 1.1
+Version: 1.1.0
 Authors@R: person('Ashley', 'Baldry', email = 'arbaldry91@gmail.com', role = c('aut', 'cre'))
 Description: Implementation of 'Azure DevOps' <https://dev.azure.com/> API calls. 
     It enables the extraction of information about repositories, build and release definitions and individual releases. 
