@@ -1,14 +1,14 @@
-#' Visual Studio Team Services Account
+#' Azure DevOps Account
 #'
 #' @details
 #' For the majority of functions that are within this \code{vsts_account} object, you can get help about the
 #' query or body parameter with \code{?vsts_<function name>}.
 #'
-#' @param user username for the Visual Studio account
-#' @param pass password for the Visual Studio account
-#' @param domain domain name for the Visual Studio account
-#' @param project (optional) project name within the domain of the Visual Studio account
-#' @param repo (optional) repository name with the project of the Visual Studio domain
+#' @param user username for the Azure DevOps account
+#' @param pass password for the Azure DevOps account
+#' @param domain domain name for the Azure DevOps account
+#' @param project (optional) project name within the domain of the Azure DevOps account
+#' @param repo (optional) repository name with the project of the Azure DevOps domain
 #'
 #' @docType class
 #' @format An \code{\link[R6]{R6Class}} generator object

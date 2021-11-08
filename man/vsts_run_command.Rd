@@ -2,7 +2,7 @@
 % Please edit documentation in R/custom.R
 \name{vsts_run_command}
 \alias{vsts_run_command}
-\title{Visual Studio Custom API Calls}
+\title{Azure DevOps Custom API Calls}
 \usage{
 vsts_run_command(url, verb, auth_key, body = NULL, query = NULL)
 }
@@ -15,7 +15,7 @@ vsts_run_command(url, verb, auth_key, body = NULL, query = NULL)
 
 \item{body}{check \code{\link[httr]{VERB}} for more details. If the object is a named list, then it will be
 transformed into a JSON string so that can be added to the call. Use
-\url{https://docs.microsoft.com/en-us/rest/api/vsts/} to find out any required parameter for the body.}
+\url{https://docs.microsoft.com/en-us/rest/api/azure/devops} to find out any required parameter for the body.}
 
 \item{query}{a list of extra parameters that can be sent to the API call. If not required then leave as \code{NULL}}
 }
@@ -29,10 +29,13 @@ For the most part it is just a shell of \code{\link[httr]{VERB}} but will have t
 \dontrun{
 auth_key <- vsts_auth_key("<username>", "<password>")
 # Get commits of a repository
-URL <- paste0(
-  "https://{accountName}.visualstudio.com/{project}",
-  "/_apis/git/repositories/{repositoryId}/commits/",
-  "{commitId}?api-version=4.1-preview"
+URL <- file.path(
+  "https://dev.azure.com",
+  domain,
+  project,
+  "_apis/git/repositories",
+  repository_id,
+  "commits?api-version=5.0"
 )
 vsts_run_command(URL, "GET", auth_key)
 }

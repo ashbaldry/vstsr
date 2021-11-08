@@ -3,14 +3,14 @@
 \name{vsts_get_releases}
 \alias{vsts_get_releases}
 \alias{vsts_get_release}
-\title{Visual Studio Project Release Information}
+\title{Azure DevOps Project Release Information}
 \usage{
 vsts_get_releases(domain, project, auth_key, query = NULL)
 
 vsts_get_release(domain, project, release, auth_key)
 }
 \arguments{
-\item{domain}{the location of the visual studio server}
+\item{domain}{The name of the Azure DevOps organization.}
 
 \item{project}{the name of the project in \code{domain} to look at}
 
@@ -50,7 +50,7 @@ Ids will be returned.}
 \item{release}{Release Definition ID}
 }
 \description{
-These functions will allow you to scrape releases from Visual Studio.
+These functions will allow you to scrape releases from Azure DevOps.
 }
 \details{
 For more information about release API calls check

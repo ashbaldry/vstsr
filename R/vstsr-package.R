@@ -1,9 +1,9 @@
-#' vstsr: A package connecting R and Visual Studio
+#' vstsr: A package connecting R and Azure DevOps
 #'
-#' This package takes a look at the Visual Studio Team Services API calls and wraps them around in easy to use R functions. This
+#' This package takes a look at the Azure DevOps API calls and wraps them around in easy to use R functions. This
 #' includes looking at projects, repositories, work items, and eventually sections such as builds and releases.
 #'
-#' For more information about Visual Studio Team Services APIs, take a look at \url{https://docs.microsoft.com/en-us/rest/api/vsts}
+#' For more information about Azure DevOps APIs, take a look at \url{https://docs.microsoft.com/en-us/rest/api/vsts}
 #'
 #' @section Projects:
 #' This looks at the projects available in a visual studio instance. This lets you change between any project that you might
@@ -22,7 +22,7 @@
 #'
 #' @section Custom:
 #' For any non-predefined API service available in the package, it is always possible to run the \code{\link{vsts_run_command}} which
-#' will use any enabled Visual Studio API call.
+#' will use any enabled Azure DevOps API call.
 #'
 #' @docType package
 #' @name vstsr
@@ -31,7 +31,4 @@ NULL
 #' @import R6
 #' @import httr
 #' @importFrom RCurl base64
-#' @importFrom magrittr %>%
 #' @importFrom jsonlite toJSON fromJSON
-
-globalVariables(c("."))

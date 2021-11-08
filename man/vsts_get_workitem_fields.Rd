@@ -2,7 +2,7 @@
 % Please edit documentation in R/workitem.R
 \name{vsts_get_workitem_fields}
 \alias{vsts_get_workitem_fields}
-\title{Visual Studio Work Item Fields}
+\title{Azure DevOps Work Item Fields}
 \usage{
 vsts_get_workitem_fields(
   System.Title,
@@ -15,23 +15,23 @@ vsts_get_workitem_fields(
 )
 }
 \arguments{
-\item{System.Title}{[character] title of the Visual Studio work item}
+\item{System.Title}{[character] title of the Azure DevOps work item}
 
-\item{System.Description}{[character] description of the Visual Studio work item}
+\item{System.Description}{[character] description of the Azure DevOps work item}
 
-\item{System.TeamProject}{[character] name of the Visual Studio project}
+\item{System.TeamProject}{[character] name of the Azure DevOps project}
 
-\item{System.AreaPath}{[character] path of the Visual Studio work item}
+\item{System.AreaPath}{[character] path of the Azure DevOps work item}
 
-\item{System.IterationPath}{[character] name of the Visual Studio iteration path}
+\item{System.IterationPath}{[character] name of the Azure DevOps iteration path}
 
 \item{Microsoft.VSTS.Common.Priority}{[integer] priority of the work item - 1 to 4}
 
 \item{...}{other fields that might have been missed out originally}
 }
 \description{
-This contains all the fields required of any work item in a visual studio project and helps add/rename the fields of the selected
-work item.
+This contains all the fields required of any work item in a visual studio project and helps
+add/rename the fields of the selected work item.
 }
 \details{
 For more information about work item fields API calls check

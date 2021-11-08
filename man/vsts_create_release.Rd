@@ -2,12 +2,12 @@
 % Please edit documentation in R/release.R
 \name{vsts_create_release}
 \alias{vsts_create_release}
-\title{Visual Studio Project Release Information}
+\title{Azure DevOps Project Release Information}
 \usage{
 vsts_create_release(domain, project, auth_key, body)
 }
 \arguments{
-\item{domain}{the location of the visual studio server}
+\item{domain}{The name of the Azure DevOps organization.}
 
 \item{project}{the name of the project in \code{domain} to look at}
 
@@ -25,7 +25,7 @@ vsts_create_release(domain, project, auth_key, body)
 }}
 }
 \description{
-These functions will allow you to create releases from Visual Studio.
+These functions will allow you to create releases from Azure DevOps.
 }
 \details{
 The \code{artifacts} object within the body contains two items:

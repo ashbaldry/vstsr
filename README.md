@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/ashbaldry/vstsr.svg?branch=master)](https://travis-ci.org/ashbaldry/vstsr)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ashbaldry/vstsr?branch=master&svg=true)](https://ci.appveyor.com/project/ashbaldry/vstsr)
 
-The aim of `vstsr` is to make it easier to connect between R and Visual Studio Team Services.
+The aim of `vstsr` is to make it easier to connect between R and Azure DevOps.
 
 Commands will include getting repository information, git services and work item information.
 

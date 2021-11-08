@@ -2,12 +2,12 @@
 % Please edit documentation in R/release.R
 \name{vsts_get_release_defs}
 \alias{vsts_get_release_defs}
-\title{Visual Studio Project Release Definition Information}
+\title{Azure DevOps Project Release Definition Information}
 \usage{
 vsts_get_release_defs(domain, project, auth_key, quiet = FALSE)
 }
 \arguments{
-\item{domain}{the location of the visual studio server}
+\item{domain}{The name of the Azure DevOps organization.}
 
 \item{project}{the name of the project in \code{domain} to look at}
 
@@ -17,11 +17,11 @@ vsts_get_release_defs(domain, project, auth_key, quiet = FALSE)
 issue with the API call will still show up if set to \code{TRUE}}
 }
 \description{
-These functions will allow you to scrape release definition information from Visual Studio.
+These functions will allow you to scrape release definition information from Azure DevOps.
 }
 \details{
 For more information about release definition API calls check
-\url{https://docs.microsoft.com/en-us/rest/api/vsts/release/definitions}.
+\url{https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases}.
 }
 \examples{
 \dontrun{

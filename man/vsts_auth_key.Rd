@@ -2,22 +2,33 @@
 % Please edit documentation in R/authentication.R
 \name{vsts_auth_key}
 \alias{vsts_auth_key}
-\title{Visual Studio Team Service Authentication Key}
+\title{Azure DevOps Authentication Key}
 \usage{
 vsts_auth_key(user, pass)
 }
 \arguments{
-\item{user}{username to access VSTS project}
+\item{user}{username to access Azure DevOps project}
 
-\item{pass}{password to access VSTS project}
+\item{pass}{password to access Azure DevOps project}
 }
 \value{
-An authentication key string in the form of 'Basic <Base 64 of user:pass>'
+An authentication key string in the form of 'Basic <Base 64 of \code{user}:\code{pass}>'
 }
 \description{
-Creation of a VSTS authentication key that will be used when running any of the API calls.
+Creation of a Azure DevOps authentication key that will be used when running any of the API calls.
+}
+\details{
+For more information about authentication check
+\url{https://docs.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-6.1#create-the-request}
+
+To obtain a personal access token, access \url{https://dev.azure.com/projectName/_usersSettings/tokens},
+changing the \code{projectName} with the required project.
 }
 \examples{
+# Using credentials
 auth_key <- vsts_auth_key("<username>", "<password>")
+
+# Using PAT token
+auth_key <- vsts_auth_key(NULL, "<token>")
 
 }
