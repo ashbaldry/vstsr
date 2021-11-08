@@ -13,9 +13,6 @@
 #' For more information about authentication check
 #' \url{https://docs.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-6.1#create-the-request}
 #'
-#' To obtain a personal access token, access \url{https://dev.azure.com/projectName/_usersSettings/tokens},
-#' changing the \code{projectName} with the required project.
-#'
 #' @examples
 #' # Using credentials
 #' auth_key <- vsts_auth_key("<username>", "<password>")

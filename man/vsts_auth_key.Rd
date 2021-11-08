@@ -20,9 +20,6 @@ Creation of a Azure DevOps authentication key that will be used when running any
 \details{
 For more information about authentication check
 \url{https://docs.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-6.1#create-the-request}
-
-To obtain a personal access token, access \url{https://dev.azure.com/projectName/_usersSettings/tokens},
-changing the \code{projectName} with the required project.
 }
 \examples{
 # Using credentials
