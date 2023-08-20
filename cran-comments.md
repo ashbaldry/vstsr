@@ -1,3 +1,7 @@
+# 1.1.1
+
+* Updated package documentation to use "_PACKAGE" rather than @docType package
+
 # 1.1.0
 
 * Updated the APIs to use Azure DevOps rather than Visual Studio Team Services. All URLs have been updated and 'Azure DevOps' has been quoted
