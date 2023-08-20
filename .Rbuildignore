@@ -6,3 +6,6 @@
 ^appveyor\.yml$
 ^inst/scripts/release\.R$
 ^cran-comments\.md$
+^CRAN-RELEASE$
+^codecov\.yml$
+^\.github$
