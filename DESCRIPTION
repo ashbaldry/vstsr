@@ -1,7 +1,7 @@
 Package: vstsr
 Type: Package
 Title: Access to 'Azure DevOps' API via R
-Version: 1.1.0
+Version: 1.1.1
 Authors@R: person('Ashley', 'Baldry', email = 'arbaldry91@gmail.com', role = c('aut', 'cre'))
 Description: Implementation of 'Azure DevOps' <https://azure.microsoft.com/> API calls. 
     It enables the extraction of information about repositories, build and release definitions and individual releases. 
@@ -13,6 +13,6 @@ BugReports: https://github.com/ashbaldry/vstsr/issues
 Imports: R6, httr, RCurl, jsonlite
 Encoding: UTF-8
 Roxygen: list(r6 = FALSE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 Suggests: testthat
 Language: en-GB

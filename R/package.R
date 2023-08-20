@@ -24,11 +24,8 @@
 #' For any non-predefined API service available in the package, it is always possible to run the \code{\link{vsts_run_command}} which
 #' will use any enabled Azure DevOps API call.
 #'
-#' @docType package
-#' @name vstsr
-NULL
-
 #' @import R6
 #' @import httr
 #' @importFrom RCurl base64
 #' @importFrom jsonlite toJSON fromJSON
+"_PACKAGE"
