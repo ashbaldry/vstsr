@@ -5,7 +5,7 @@
 #'
 #' @details
 #' For more information about release definition API calls check
-#' \url{https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases}.
+#' \url{https://learn.microsoft.com/en-us/rest/api/azure/devops/release/releases}.
 #'
 #' @param domain The name of the Azure DevOps organization.
 #' @param project the name of the project in \code{domain} to look at
@@ -50,7 +50,7 @@ vsts_get_release_defs <- function(domain, project, auth_key, quiet = FALSE) {
 #' }
 #'
 #' For more information about release  API calls check
-#' \url{https://docs.microsoft.com/en-us/rest/api/vsts/release/releases}.
+#' \url{https://learn.microsoft.com/en-us/rest/api/vsts/release/releases}.
 #'
 #' @param domain The name of the Azure DevOps organization.
 #' @param project the name of the project in \code{domain} to look at
@@ -105,7 +105,7 @@ vsts_create_release <- function(domain, project, auth_key, body) {
 #'
 #' @details
 #' For more information about release API calls check
-#' \url{https://docs.microsoft.com/en-us/rest/api/azure/devops/release/Releases}.
+#' \url{https://learn.microsoft.com/en-us/rest/api/azure/devops/release/Releases}.
 #'
 #' @param domain The name of the Azure DevOps organization.
 #' @param project the name of the project in \code{domain} to look at
@@ -157,7 +157,7 @@ vsts_get_release <- function(domain, project, release, auth_key) {
 #'
 #' @details
 #' For more information about release environment API calls check
-#' \url{https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/update-release-environment}.
+#' \url{https://learn.microsoft.com/en-us/rest/api/azure/devops/release/releases/update-release-environment}.
 #'
 #' @param domain The name of the Azure DevOps organization.
 #' @param project the name of the project in \code{domain} to look at

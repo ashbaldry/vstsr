@@ -15,7 +15,7 @@ vsts_run_command(url, verb, auth_key, body = NULL, query = NULL)
 
 \item{body}{check \code{\link[httr]{VERB}} for more details. If the object is a named list, then it will be
 transformed into a JSON string so that can be added to the call. Use
-\url{https://docs.microsoft.com/en-us/rest/api/azure/devops} to find out any required parameter for the body.}
+\url{https://learn.microsoft.com/en-us/rest/api/azure/devops} to find out any required parameter for the body.}
 
 \item{query}{a list of extra parameters that can be sent to the API call. If not required then leave as \code{NULL}}
 }

@@ -19,5 +19,5 @@ These functions will allow you to scrape project information from Azure DevOps.
 }
 \details{
 For more information about project API calls check
-\url{https://docs.microsoft.com/en-us/rest/api/azure/devops/core/Projects}.
+\url{https://learn.microsoft.com/en-us/rest/api/azure/devops/core/Projects}.
 }

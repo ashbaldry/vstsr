@@ -8,7 +8,7 @@ Description: Implementation of 'Azure DevOps' <https://azure.microsoft.com/> API
     It also helps create repositories and work items within a project without logging into 'Azure DevOps'. 
     There is the ability to use any API service with a shell for any non-predefined call.
 License: GPL-2
-URL: https://github.com/ashbaldry/vstsr, https://docs.microsoft.com/en-us/rest/api/azure/devops
+URL: https://github.com/ashbaldry/vstsr, https://learn.microsoft.com/en-us/rest/api/azure/devops
 BugReports: https://github.com/ashbaldry/vstsr/issues
 Imports: R6, httr, RCurl, jsonlite
 Encoding: UTF-8

@@ -22,7 +22,7 @@ These functions will allow you to run release environment tasks from Azure DevOp
 }
 \details{
 For more information about release environment API calls check
-\url{https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/update-release-environment}.
+\url{https://learn.microsoft.com/en-us/rest/api/azure/devops/release/releases/update-release-environment}.
 }
 \examples{
 \dontrun{

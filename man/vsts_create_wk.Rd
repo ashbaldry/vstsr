@@ -22,5 +22,5 @@ These functions will allow you to scrape work item information from a particular
 }
 \details{
 For more information about work item API calls check
-\url{https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/work-items}.
+\url{https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/work-items}.
 }

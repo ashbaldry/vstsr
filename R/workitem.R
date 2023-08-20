@@ -5,7 +5,7 @@
 #'
 #' @details
 #' For more information about work item API calls check
-#' \url{https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/work-items}.
+#' \url{https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/work-items}.
 #'
 #' @param domain The name of the Azure DevOps organization.
 #' @param project Project ID or project name
@@ -63,7 +63,7 @@ vsts_get_workitem <- function(domain, project, auth_key, id) {
 #'
 #' @details
 #' For more information about work item API calls check
-#' \url{https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/work-items}.
+#' \url{https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/work-items}.
 #'
 #' @param domain The name of the Azure DevOps organization.
 #' @param project the name of the project in \code{domain} to look at
@@ -123,7 +123,7 @@ vsts_get_itemtypes <- function(domain, project, auth_key) {
 #'
 #' @details
 #' For more information about work item fields API calls check
-#' \url{https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/Fields}.
+#' \url{https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/Fields}.
 #'
 #' @param System.Title [character] title of the Azure DevOps work item
 #' @param System.Description [character] description of the Azure DevOps work item

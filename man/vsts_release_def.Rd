@@ -21,7 +21,7 @@ These functions will allow you to scrape release definition information from Azu
 }
 \details{
 For more information about release definition API calls check
-\url{https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases}.
+\url{https://learn.microsoft.com/en-us/rest/api/azure/devops/release/releases}.
 }
 \examples{
 \dontrun{

@@ -25,7 +25,7 @@ These functions will allow you to scrape releases from Azure DevOps.
 }
 \details{
 For more information about release API calls check
-\url{https://docs.microsoft.com/en-us/rest/api/azure/devops/release/Releases}.
+\url{https://learn.microsoft.com/en-us/rest/api/azure/devops/release/Releases}.
 }
 \examples{
 \dontrun{

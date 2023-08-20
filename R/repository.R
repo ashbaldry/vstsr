@@ -5,7 +5,7 @@
 #'
 #' @details
 #' For more information about repository API calls check
-#' \url{https://docs.microsoft.com/en-us/rest/api/azure/devops/git}.
+#' \url{https://learn.microsoft.com/en-us/rest/api/azure/devops/git}.
 #'
 #' @param domain The name of the Azure DevOps organization
 #' @param project Project ID or project name

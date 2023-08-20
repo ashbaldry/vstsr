@@ -3,7 +3,7 @@
 #' This package takes a look at the Azure DevOps API calls and wraps them around in easy to use R functions. This
 #' includes looking at projects, repositories, work items, and eventually sections such as builds and releases.
 #'
-#' For more information about Azure DevOps APIs, take a look at \url{https://docs.microsoft.com/en-us/rest/api/vsts}
+#' For more information about Azure DevOps APIs, take a look at \url{https://learn.microsoft.com/en-us/rest/api/azure/devop}
 #'
 #' @section Projects:
 #' This looks at the projects available in a visual studio instance. This lets you change between any project that you might
@@ -23,9 +23,4 @@
 #' @section Custom:
 #' For any non-predefined API service available in the package, it is always possible to run the \code{\link{vsts_run_command}} which
 #' will use any enabled Azure DevOps API call.
-#'
-#' @import R6
-#' @import httr
-#' @importFrom RCurl base64
-#' @importFrom jsonlite toJSON fromJSON
 "_PACKAGE"

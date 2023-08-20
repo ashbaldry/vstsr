@@ -35,7 +35,7 @@ The \code{artifacts} object within the body contains two items:
 }
 
 For more information about release  API calls check
-\url{https://docs.microsoft.com/en-us/rest/api/vsts/release/releases}.
+\url{https://learn.microsoft.com/en-us/rest/api/vsts/release/releases}.
 }
 \examples{
 \dontrun{

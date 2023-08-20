@@ -31,7 +31,7 @@ These functions will allow you to scrape git repository information from Azure D
 }
 \details{
 For more information about git repository API calls check
-\url{https://docs.microsoft.com/en-us/rest/api/azure/devops/git/commits/get-commits}.
+\url{https://learn.microsoft.com/en-us/rest/api/azure/devops/git/commits/get-commits}.
 }
 \examples{
 \dontrun{

@@ -19,7 +19,7 @@ Creation of a Azure DevOps authentication key that will be used when running any
 }
 \details{
 For more information about authentication check
-\url{https://docs.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-6.1#create-the-request}
+\url{https://learn.microsoft.com/en-us/rest/api/azure/devops}
 }
 \examples{
 # Using credentials

@@ -23,6 +23,7 @@
 #' str(proj)
 #' }
 #'
+#' @importFrom R6 R6Class
 #' @export
 vsts_account <- R6::R6Class(
   classname = "vsts",

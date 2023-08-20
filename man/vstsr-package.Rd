@@ -10,7 +10,7 @@ This package takes a look at the Azure DevOps API calls and wraps them around in
 includes looking at projects, repositories, work items, and eventually sections such as builds and releases.
 }
 \details{
-For more information about Azure DevOps APIs, take a look at \url{https://docs.microsoft.com/en-us/rest/api/vsts}
+For more information about Azure DevOps APIs, take a look at \url{https://learn.microsoft.com/en-us/rest/api/azure/devop}
 }
 \section{Projects}{
 
@@ -45,7 +45,7 @@ will use any enabled Azure DevOps API call.
 Useful links:
 \itemize{
   \item \url{https://github.com/ashbaldry/vstsr}
-  \item \url{https://docs.microsoft.com/en-us/rest/api/azure/devops}
+  \item \url{https://learn.microsoft.com/en-us/rest/api/azure/devops}
   \item Report bugs at \url{https://github.com/ashbaldry/vstsr/issues}
 }
 

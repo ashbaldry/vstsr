@@ -21,7 +21,7 @@ These functions will allow you to scrape build definition information from Azure
 }
 \details{
 For more information about the build definition API calls check
-\url{https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions/list}.
+\url{https://learn.microsoft.com/en-us/rest/api/azure/devops/build/definitions/list}.
 }
 \examples{
 \dontrun{

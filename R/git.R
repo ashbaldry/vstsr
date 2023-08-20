@@ -5,7 +5,7 @@
 #'
 #' @details
 #' For more information about git repository API calls check
-#' \url{https://docs.microsoft.com/en-us/rest/api/azure/devops/git/commits/get-commits}.
+#' \url{https://learn.microsoft.com/en-us/rest/api/azure/devops/git/commits/get-commits}.
 #'
 #' @param domain The name of the Azure DevOps organization.
 #' @param project the name of the project in \code{domain} to look at
