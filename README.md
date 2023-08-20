@@ -1,7 +1,9 @@
 # vstsr
 
-[![Build Status](https://travis-ci.org/ashbaldry/vstsr.svg?branch=master)](https://travis-ci.org/ashbaldry/vstsr)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ashbaldry/vstsr?branch=master&svg=true)](https://ci.appveyor.com/project/ashbaldry/vstsr)
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/ashbaldry/vstsr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ashbaldry/vstsr/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/ashbaldry/vstsr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ashbaldry/vstsr?branch=main)
+<!-- badges: end -->
 
 The aim of `vstsr` is to make it easier to connect between R and Azure DevOps.
 
